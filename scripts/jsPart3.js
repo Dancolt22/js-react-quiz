@@ -144,7 +144,7 @@ btn.addEventListener("click", handleClick);
     ],
     correctAnswer: 2,
     explanation: "The `finally` block is guaranteed to execute unconditionally after `try` and `catch` finish, making it ideal for cleanup actions (closing connections, resetting loading states).",
-    tip: "`finally` always runs — error or no error, return or no return."
+    tip: "`finally` always runs - error or no error, return or no return."
   },
   {
     id: "js-eh-02",

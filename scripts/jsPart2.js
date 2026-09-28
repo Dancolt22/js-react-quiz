@@ -726,8 +726,8 @@ const c2 = makeCounter();
 c1(); c1();
 console.log(c1(), c2());`,
     options: [
-      "`3` and `1` — each invocation of `makeCounter()` creates a new, independent lexical environment in memory.",
-      "`3` and `3` — all counters share a single global count variable.",
+      "`3` and `1` - each invocation of `makeCounter()` creates a new, independent lexical environment in memory.",
+      "`3` and `3` - all counters share a single global count variable.",
       "`2` and `2`",
       "`undefined` and `undefined`"
     ],

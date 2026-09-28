@@ -303,7 +303,7 @@ export const REACT_QUESTIONS = [
     ],
     "correctAnswer": 0,
     "explanation": "`node_modules` contains gigabytes of platform-dependent third-party files. Since `package.json` and `package-lock.json` record the exact dependency versions, anyone can recreate `node_modules` by running `npm install`.",
-    "tip": "Never commit `node_modules` — always commit `package.json` and `package-lock.json`."
+    "tip": "Never commit `node_modules` - always commit `package.json` and `package-lock.json`."
   },
   {
     "id": "r19-m2-08",
@@ -488,7 +488,7 @@ export const REACT_QUESTIONS = [
     "question": "How do you write comments inside JSX markup?",
     "code": "return (\n  <div>\n    {/* This is a comment inside JSX */}\n    <h1>Title</h1>\n  </div>\n);",
     "options": [
-      "`{/* Comment text */}` — JavaScript block comment wrapped in JSX curly braces.",
+      "`{/* Comment text */}` - JavaScript block comment wrapped in JSX curly braces.",
       "`<!-- Comment text -->`",
       "`// Comment text` directly in JSX",
       "`# Comment text`"
@@ -584,7 +584,7 @@ export const REACT_QUESTIONS = [
     "question": "What are 'Props' in React?",
     "code": "<UserCard name=\"Alex\" role=\"Admin\" age={28} />",
     "options": [
-      "Short for 'Properties' — read-only inputs passed from a parent component to a child component to customize its rendering and behavior.",
+      "Short for 'Properties' - read-only inputs passed from a parent component to a child component to customize its rendering and behavior.",
       "Mutable internal state variables created by `useState`.",
       "CSS animations created in stylesheets.",
       "Database credentials stored in `.env`."
@@ -2518,7 +2518,7 @@ export const REACT_QUESTIONS = [
     "topicId": "react-19-features",
     "topicName": "Module 13: What's New in React 19",
     "question": "How does React 19 handle document metadata (like `<title>`, `<meta>`, `<link rel=\"stylesheet\">`) inside components?",
-    "code": "function QuizPage() {\n  return (\n    <div>\n      <title>React 19 Certification Exam | EvalForge</title>\n      <meta name=\"description\" content=\"Official exam portal\" />\n      <h1>Exam in progress</h1>\n    </div>\n  );\n}",
+    "code": "function QuizPage() {\n  return (\n    <div>\n      <title>React 19 Certification Exam | DFI JS/REACT Quiz</title>\n      <meta name=\"description\" content=\"Official exam portal\" />\n      <h1>Exam in progress</h1>\n    </div>\n  );\n}",
     "options": [
       "React 19 natively supports rendering `<title>`, `<meta>`, and `<link>` tags directly inside any component, automatically hoisting them to the document `<head>` without external libraries like `react-helmet`.",
       "React 19 throws an error if `<title>` is in a component.",

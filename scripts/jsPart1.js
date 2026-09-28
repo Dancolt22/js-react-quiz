@@ -7,10 +7,10 @@ export const jsPart1 = [
     question: "What does the DRY software engineering principle stand for, and what is its primary objective?",
     code: null,
     options: [
-      "Don't Repeat Yourself — avoid duplicate logic by extracting shared code into reusable functions.",
-      "Do Review Yourself — continuously test and debug code manually.",
-      "Data Redundancy Yield — store identical data across multiple variables for backup.",
-      "Dynamic Return Yield — always return values dynamically from every function."
+      "Don't Repeat Yourself - avoid duplicate logic by extracting shared code into reusable functions.",
+      "Do Review Yourself - continuously test and debug code manually.",
+      "Data Redundancy Yield - store identical data across multiple variables for backup.",
+      "Dynamic Return Yield - always return values dynamically from every function."
     ],
     correctAnswer: 0,
     explanation: "DRY stands for 'Don't Repeat Yourself'. It emphasizes that if you write the exact same logic more than once, you should extract it into a reusable function or module to keep code maintainable and reduce bug surface.",
@@ -42,10 +42,10 @@ function handleUserData(user) {
     question: "What does the KISS principle advocate in software development?",
     code: null,
     options: [
-      "Keep It Structured & Synchronous — avoid asynchronous code whenever possible.",
-      "Keep It Simple, Stupid — the simplest solution that works is usually the best and easiest to maintain.",
-      "Key Instruction System Standard — enforce strictly 80-character line lengths.",
-      "Knowledge In Source Systems — embed full documentation in every comment block."
+      "Keep It Structured & Synchronous - avoid asynchronous code whenever possible.",
+      "Keep It Simple, Stupid - the simplest solution that works is usually the best and easiest to maintain.",
+      "Key Instruction System Standard - enforce strictly 80-character line lengths.",
+      "Knowledge In Source Systems - embed full documentation in every comment block."
     ],
     correctAnswer: 1,
     explanation: "KISS stands for 'Keep It Simple, Stupid'. It reminds developers that overly clever, intricate code is harder to read, test, and debug. Simple, clear code is always superior to needlessly complex code.",
@@ -566,8 +566,8 @@ fruits.push("cherry");
 console.log(fruits.length);`,
     options: [
       "Throws a `TypeError` because `const` prevents any modification.",
-      "`3` — `const` prevents variable reassignment, but the object/array contents remain mutable.",
-      "`2` — the mutation is ignored silently.",
+      "`3` - `const` prevents variable reassignment, but the object/array contents remain mutable.",
+      "`2` - the mutation is ignored silently.",
       "`undefined`"
     ],
     correctAnswer: 1,
@@ -692,7 +692,7 @@ function display() {
     code: `console.log(typeof null);`,
     options: [
       "`\"null\"`",
-      "`\"object\"` — this is a historic legacy bug in the original JavaScript implementation.",
+      "`\"object\"` - this is a historic legacy bug in the original JavaScript implementation.",
       "`\"undefined\"`",
       "`\"boolean\"`"
     ],

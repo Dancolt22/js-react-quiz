@@ -565,7 +565,7 @@ function CustomInput({ placeholder, ref }) {
     code: `function QuizPage() {
   return (
     <div>
-      <title>React 19 Certification Exam | EvalForge</title>
+      <title>React 19 Certification Exam | DFI JS/REACT Quiz</title>
       <meta name="description" content="Official exam portal" />
       <h1>Exam in progress</h1>
     </div>

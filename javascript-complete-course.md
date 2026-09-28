@@ -1,5 +1,5 @@
 # 📘 The Complete JavaScript Course
-### From Zero to Professional — A Student's Full Guide
+### From Zero to Professional - A Student's Full Guide
 
 
 
@@ -66,12 +66,12 @@ Coding principles are rules and guidelines that help you write code that is clea
 * If you write the same code more than once, something is wrong. Extract it into a function.
 
 ```javascript
-// BAD practice — repeating the same logic
+// BAD practice - repeating the same logic
 console.log("Hello, Alice! You are 20 years old.");
 console.log("Hello, Bob! You are 25 years old.");
 console.log("Hello, Charlie! You are 30 years old.");
 
-// GOOD practice — Dont Repeat Yourself (DRY) version using a function
+// GOOD practice - Dont Repeat Yourself (DRY) version using a function
 function greet(name, age) {
   console.log("Hello, " + name + "! You are " + age + " years old.");//concatenation
 }
@@ -85,7 +85,7 @@ greet("Charlie", 30);
 * Don't over-complicate your code. The simplest solution that works is usually the best one.
 
 ```javascript
-// BAD practice — overly complicated
+// BAD practice - overly complicated
 function isEven(num) {
   if (num % 2 === 0) {
     return true;
@@ -94,7 +94,7 @@ function isEven(num) {
   }
 }
 
-// GOOD practice — simple and clean
+// GOOD practice - simple and clean
 function isEven(num) {
   return num % 2 === 0;
 }
@@ -105,12 +105,12 @@ function isEven(num) {
 Every function should do ONE thing and do it well. If your function is doing many things, split it up.
 
 ```javascript
-// BAD practice — one function doing too many things
+// BAD practice - one function doing too many things
 function processUser(user) {
   // validates, saves to database, sends email, logs activity...
 }
 
-// GOOD practice — each function has one job
+// GOOD practice - each function has one job
 function validateUser(user) { /* ... */ }
 function saveUser(user) { /* ... */ }
 function sendWelcomeEmail(user) { /* ... */ }
@@ -131,7 +131,7 @@ Pseudocode is writing out the STEPS of your program in plain English before you 
 - It's language-independent (works for any programming language)
 - It helps you spot problems in your logic early
 
-### Example — Making Tea (Pseudocode)
+### Example - Making Tea (Pseudocode)
 
 ```
 START
@@ -166,11 +166,11 @@ function addNumbers(a, b) {
 addNumbers(5, 10); // Output: The result is: 15
 ```
 
-### Algorithmic Thinking — Step-by-Step Problem Solving
+### Algorithmic Thinking - Step-by-Step Problem Solving
 
 An **algorithm** is a set of step-by-step set of instructions to solve a problem. Think of it like a recipe.
 
-**Example — Find the largest number in a list:**
+**Example - Find the largest number in a list:**
 
 ```javascript
 // Pseudocode translated to JavaScript
@@ -206,22 +206,22 @@ You don't need to be a math genius, but some basic math concepts show up in prog
 ### Arithmetic Operators
 
 ```javascript
-console.log(10 + 3);  // 13 — Addition
-console.log(10 - 3);  // 7  — Subtraction
-console.log(10 * 3);  // 30 — Multiplication
-console.log(10 / 3);  // 3.333... — Division
-console.log(10 % 3);  // 1  — Modulus (remainder)
-console.log(10 ** 3); // 1000 — Exponentiation (10 to the power of 3)
+console.log(10 + 3);  // 13 - Addition
+console.log(10 - 3);  // 7  - Subtraction
+console.log(10 * 3);  // 30 - Multiplication
+console.log(10 / 3);  // 3.333... - Division
+console.log(10 % 3);  // 1  - Modulus (remainder)
+console.log(10 ** 3); // 1000 - Exponentiation (10 to the power of 3)
 ```
 
-### Modulus (%) — The Most Useful Math Operator
+### Modulus (%) - The Most Useful Math Operator
 
 The `%` operator gives you the **remainder** after division. It's used constantly in programming.
 
 ```javascript
 // Check if a number is even or odd
-console.log(8 % 2);  // 0 — even (no remainder)
-console.log(7 % 2);  // 1 — odd (remainder of 1)
+console.log(8 % 2);  // 0 - even (no remainder)
+console.log(7 % 2);  // 1 - odd (remainder of 1)
 
 function isEven(n) { return n % 2 === 0; } 3%2 = 3/2
 function isOdd(n) { return n % 2 === y; }
@@ -230,7 +230,7 @@ console.log(isEven(10)); // true
 console.log(isOdd(7));   // true
 
 // Wrap around a list (like a clock going from 12 back to 1)
-let index = 7 % 5; // 2 — wraps back around
+let index = 7 % 5; // 2 - wraps back around
 ```
 
 ### The Math Object
@@ -238,15 +238,15 @@ let index = 7 % 5; // 2 — wraps back around
 JavaScript has a built-in `Math` object with useful math functions:
 
 ```javascript
-console.log(Math.round(4.6));     // 5   — round to nearest whole number 5.69 = 6
-console.log(Math.floor(4.9));     // 4   — always round DOWN
-console.log(Math.ceil(4.1));      // 5   — always round UP
-console.log(Math.abs(-7));        // 7   — absolute value (removes negative)
-console.log(Math.sqrt(16));       // 4   — square root
-console.log(Math.pow(2, 8));      // 256 — 2 to the power of 8
-console.log(Math.max(3, 7, 2));   // 7   — largest number
-console.log(Math.min(3, 7, 2));   // 2   — smallest number
-console.log(Math.PI);             // 3.14159... — Pi constant
+console.log(Math.round(4.6));     // 5   - round to nearest whole number 5.69 = 6
+console.log(Math.floor(4.9));     // 4   - always round DOWN
+console.log(Math.ceil(4.1));      // 5   - always round UP
+console.log(Math.abs(-7));        // 7   - absolute value (removes negative)
+console.log(Math.sqrt(16));       // 4   - square root
+console.log(Math.pow(2, 8));      // 256 - 2 to the power of 8
+console.log(Math.max(3, 7, 2));   // 7   - largest number
+console.log(Math.min(3, 7, 2));   // 2   - smallest number
+console.log(Math.PI);             // 3.14159... - Pi constant
 
 // Random number between 1 and 10
 let random = Math.floor(Math.random() * 10) + 1;
@@ -268,7 +268,7 @@ JavaScript (JS) is the programming language of the web. It makes websites intera
 ### Your First JavaScript Program
 
 ```javascript
-// This is a comment — JavaScript ignores it
+// This is a comment - JavaScript ignores it
 // Comments are notes for humans reading the code
 
 console.log("Hello, World!"); // Prints text to the browser console
@@ -311,7 +311,7 @@ Add a picture to your browser and type your fullname
 
 ### What is Syntax?
 
-Syntax is the set of rules that define how JavaScript code must be written — like grammar rules for a language.
+Syntax is the set of rules that define how JavaScript code must be written - like grammar rules for a language.
 
 ### Statements and Semicolons
 
@@ -345,7 +345,7 @@ console.log(NAME);  // Charlie
 /*
   This is a
   multi-line comment
-  — great for longer explanations
+  - great for longer explanations
 */
 
 let x = 5; // You can add comments after code on the same line
@@ -382,26 +382,26 @@ let fruit2 = {name: Banana, age: 2};//Object(keys and value pairs)
 ### Three Ways to Declare Variables
 
 ```javascript
-// var — old way, avoid in modern JS
+// var - old way, avoid in modern JS
 var oldVariable = "I'm old";
 
-// let — modern, the value CAN be changed later
+// let - modern, the value CAN be changed later
 let age = 18;
-age = 19; // OK — we can update it
+age = 19; // OK - we can update it
 
-// const — modern, value CANNOT be changed after creation
+// const - modern, value CANNOT be changed after creation
 const name = "Alice";
-// name = "Bob"; // ERROR — const cannot be reassigned
+// name = "Bob"; // ERROR - const cannot be reassigned
 ```
 
 ### When to Use What
 
 ```javascript
-const PI = 3.14159;           // Will never change — use const
-const userName = "Alice";     // Won't change — use const
+const PI = 3.14159;           // Will never change - use const
+const userName = "Alice";     // Won't change - use const
 
-let score = 0;                // Will change during the game — use let
-let currentLevel = 1;         // Will change — use let
+let score = 0;                // Will change during the game - use let
+let currentLevel = 1;         // Will change - use let
 ```
 
 > Use `const` by default. Only switch to `let` when you know the value will need to change. Never use `var`.
@@ -417,7 +417,7 @@ let firstName = "John";
 let user2 = "Bob";
 let isLoggedIn = true;
 
-// INVALID — these cause errors
+// INVALID - these cause errors
 // let 2user = "error";    // Cannot start with a number
 // let my-name = "error";  // Cannot use hyphens
 // let let = "error";      // Cannot use reserved keywords
@@ -426,16 +426,16 @@ let isLoggedIn = true;
 ### Naming Conventions
 
 ```javascript
-// camelCase — for variables and functions (most common in JS)
+// camelCase - for variables and functions (most common in JS)
 let firstName = "John";
 let totalPrice = 99.99;
 let isUserLoggedIn = true;
 
-// UPPER_SNAKE_CASE — for constants with fixed values
+// UPPER_SNAKE_CASE - for constants with fixed values
 const MAX_RETRIES = 3;
 const API_BASE_URL = "https://api.example.com";
 
-// PascalCase — for classes (covered later)
+// PascalCase - for classes (covered later)
 class UserProfile {}
 class ShoppingCart {}
 ```
@@ -450,31 +450,31 @@ Every value in JavaScript has a type. The type tells JavaScript what kind of dat
 ### Primitive Data Types
 
 ```javascript
-// 1. String — text, always wrapped in quotes
+// 1. String - text, always wrapped in quotes
 let name = "Alice"; 
 let greeting = 'Hello World';
 let template = `My name is ${name} and I love JS!`; // Template literal
 
-// 2. Number — integers and decimals (no distinction in JS)
+// 2. Number - integers and decimals (no distinction in JS)
 let age = 25;
 let price = 9.99;
 let temperature = -5;
 
-// 3. Boolean — only two possible values: true or false
+// 3. Boolean - only two possible values: true or false
 let isLoggedIn = true;
 let hasSubscription = false;
 
-// 4. Undefined — declared but no value assigned yet
+// 4. Undefined - declared but no value assigned yet
 let x;
 console.log(x); // undefined
 
-// 5. Null — intentionally empty, we choose to set it to nothing
+// 5. Null - intentionally empty, we choose to set it to nothing
 let currentUser = null; // No user logged in yet
 
-// 6. BigInt — for very large numbers
+// 6. BigInt - for very large numbers
 let bigNumber = 9007199254740991n; // Add 'n' at the end
 
-// 7. Symbol — unique value (advanced topic)
+// 7. Symbol - unique value (advanced topic)
 let id = Symbol("id");
 ```
 
@@ -554,9 +554,9 @@ x %= 4;   // same as: x = x % 4  → 2
 ### Comparison Operators
 ```javascript
 // Always use === (strict) not == (loose)
-console.log(5 === 5);    // true  — same value AND type
-console.log(5 === "5");  // false — same value, different type
-console.log(5 !== "5");  // true  — they are NOT strictly equal
+console.log(5 === 5);    // true  - same value AND type
+console.log(5 === "5");  // false - same value, different type
+console.log(5 !== "5");  // true  - they are NOT strictly equal
 
 console.log(5 > 3);      // true
 console.log(5 < 3);      // false
@@ -568,15 +568,15 @@ console.log(===)   // false num >= 1 <= 4 = 1,2,3,4
 ### Logical Operators
 
 ```javascript
-// AND — both must be true
+// AND - both must be true
 console.log(true && true);   // true
 console.log(true && false);  // false
 
-// OR — at least one must be true
+// OR - at least one must be true
 console.log(true || false);  // true
 console.log(false || false); // false
 
-// NOT — flips the boolean
+// NOT - flips the boolean
 console.log(!true);  // false  
 console.log(!false); // true
 
@@ -614,11 +614,11 @@ checkAge(15);
 Control flow is the order in which code executes. By default, code runs top to bottom. Control flow statements let you skip sections, choose between paths, or repeat sections.
 
 The three main control flow tools are:
-- **Conditionals** — run code only if a condition is true (if/else, switch)
-- **Loops** — repeat code multiple times 
-- **Functions** — jump to a reusable block of code
+- **Conditionals** - run code only if a condition is true (if/else, switch)
+- **Loops** - repeat code multiple times 
+- **Functions** - jump to a reusable block of code
 
-Think of it like a choose-your-own-adventure story — your program follows different paths based on decisions.
+Think of it like a choose-your-own-adventure story - your program follows different paths based on decisions.
 
 
 
@@ -630,7 +630,7 @@ Think of it like a choose-your-own-adventure story — your program follows diff
 let temperature = 30;
 
 if (temperature > 25) {
-  console.log("It's hot outside — wear light clothes!");
+  console.log("It's hot outside - wear light clothes!");
 }else {
   console.log("Its warm outside")
 }
@@ -669,15 +669,15 @@ if (score >= 50) {
 let score = 60;
 
 if (score >= 90) {
-  console.log("Grade: A — Excellent!");
+  console.log("Grade: A - Excellent!");
 } else if (score >= 80) {
-  console.log("Grade: B — Very Good");
+  console.log("Grade: B - Very Good");
 } else if (score >= 70) {
-  console.log("Grade: C — Good");
+  console.log("Grade: C - Good");
 } else if (score >= 60) {
-  console.log("Grade: D — Pass");
+  console.log("Grade: D - Pass");
 } else {
-  console.log("Grade: F — Fail");
+  console.log("Grade: F - Fail");
 }
 //
 
@@ -741,7 +741,7 @@ if (light === green) {
 In JavaScript, values can be treated as true or false in conditions:
 
 ```javascript
-// FALSY values — treated as false in if statements
+// FALSY values - treated as false in if statements
 if (0)         {} // false
 if ("")        {} // false
 if (null)      {} // false
@@ -749,7 +749,7 @@ if (undefined) {} // false
 if (NaN)       {} // false
 if (false)     {} // false
 
-// TRUTHY — everything else is true
+// TRUTHY - everything else is true
 if (1)        { console.log("truthy!"); }
 if ("hello")  { console.log("truthy!"); }
 if ([])       { console.log("truthy! Even empty array"); }
@@ -823,7 +823,7 @@ switch (day) {
     break;
   case "Saturday":
   case "Sunday":
-    console.log("It's the weekend — enjoy!");
+    console.log("It's the weekend - enjoy!");
     break;
   default:
     console.log("It's a regular weekday.");
@@ -840,19 +840,19 @@ function getSeasonMessage(month) {
     case 12:
     case 1:
     case 2:
-      return "It's Winter — stay warm!";
+      return "It's Winter - stay warm!";
     case 3:
     case 4:
     case 5:
-      return "It's Spring — flowers are blooming!";
+      return "It's Spring - flowers are blooming!";
     case 6:
     case 7:
     case 8:
-      return "It's Summer — enjoy the sun!";
+      return "It's Summer - enjoy the sun!";
     case 9:
     case 10:
     case 11:
-      return "It's Autumn — leaves are falling!";
+      return "It's Autumn - leaves are falling!";
     default:
       return "Invalid month";
   }
@@ -865,8 +865,8 @@ case 4-7 child
 18-19 teen/adult
 20 complete Adult
 
-console.log(getSeasonMessage(7));  // "It's Summer — enjoy the sun!"
-console.log(getSeasonMessage(12)); // "It's Winter — stay warm!"
+console.log(getSeasonMessage(7));  // "It's Summer - enjoy the sun!"
+console.log(getSeasonMessage(12)); // "It's Winter - stay warm!"
 
 ```
 
@@ -883,7 +883,7 @@ console.log("Hello 6");
 
 ### For Loop
 
-The classic loop — use when you know how many times to repeat.
+The classic loop - use when you know how many times to repeat.
 
 ```javascript
 // for (start; condition; increment) i,j,k
@@ -927,7 +927,7 @@ do{
 Do while runs the code at least once no matter what
 
 
-### For...Of Loop — Best for Arrays
+### For...Of Loop - Best for Arrays
 
 ```javascript
 let colors = ["red", "green", "blue"];
@@ -942,7 +942,7 @@ for (let vName of colors) {
 // blue
 ```
 
-### For...In Loop — Best for Objects
+### For...In Loop - Best for Objects
 
 ```javascript
 let person = { name: "Alice", age: 25, city: "Lagos" };
@@ -963,14 +963,14 @@ for (let keys in boys) {
 ### Break and Continue
 
 ```javascript
-// break — exit the loop early
+// break - exit the loop early
 for (let i = 0; i < 10; i++) {
   if (i === 5) break;
   console.log(i);
 }
 // Output: 0, 1, 2, 3, 4, 5
 
-// continue — skip this iteration, go to next
+// continue - skip this iteration, go to next
 for (let i = 0; i < 10; i++) {
   if (i % 2 === 0) continue; // Skip even numbers
   console.log(i);
@@ -1060,12 +1060,12 @@ function add(a, b) {
   return a + b;
 }
 
-// Arrow function — same thing, shorter
+// Arrow function - same thing, shorter
 const add = (a, b) => {
   return a + b;
 };
 
-// Even shorter — single expression, implicit return
+// Even shorter - single expression, implicit return
 const add = (a, b) => a + b;
 
 
@@ -1088,17 +1088,17 @@ Braces {} = must write a return statement.
 ### Arrow Function Variations
 
 ```javascript
-// No parameters — use empty parentheses
+// No parameters - use empty parentheses
 const sayHello = () => console.log("Hello!");
 
-// One parameter — parentheses optional
+// One parameter - parentheses optional
 const double = n => n * 2;
 const square = n => n * n;
 
-// Multiple parameters — parentheses required
+// Multiple parameters - parentheses required
 const greet = (name, age) => `Hi ${name}, you are ${age} years old.`;
 
-// Multi-line body — need curly braces and explicit return
+// Multi-line body - need curly braces and explicit return
 const calculateTotal = (price, taxRate) => {
   const tax = price * taxRate;
   const total = price + tax;
@@ -1166,7 +1166,7 @@ greetUser(undefined, userName, userPassword);
 
 ```
 
-### Rest Parameters — Accept Any Number of Arguments
+### Rest Parameters - Accept Any Number of Arguments
 (1+2+3+4+5+6+7+8+9)
 ```javascript
 function sum(...numbers) {
@@ -1263,7 +1263,7 @@ outer();
 inner() uses "name" from outer() 
 ```
 
-### Practical Closure — Private Bank Account
+### Practical Closure - Private Bank Account
 
 ```javascript
 function(){
@@ -1272,7 +1272,7 @@ function(){
 let class = "orange";
 
 function createBankAccount(initialBalance) {
-  let balance = initialBalance; // Private — inaccessible from outside
+  let balance = initialBalance; // Private - inaccessible from outside
   let class;
   if (class === red){
 
@@ -1300,7 +1300,7 @@ const account = createBankAccount(100);
 account.deposit(50);              // Deposited $50. Balance: $150
 account.withdraw(30);             // Withdrew $30. Balance: $120
 console.log(account.getBalance()); // 120
-// console.log(balance);           // ERROR — balance is private!
+// console.log(balance);           // ERROR - balance is private!
 ```
 
 
@@ -1313,13 +1313,13 @@ Hoisting talks about the when i.e when is a variable available for use
 ### Types of Scope
 1. Global Scope; Any Variable declared outside of any function
 ```javascript
-// Global scope — accessible everywhere in the file
+// Global scope - accessible everywhere in the file
 let globalVar = "I'm global";
 function myFunction() {
-  // Function scope — only inside this function
+  // Function scope - only inside this function
   let localVar = "I'm local";
-  console.log(globalVar); // Works — can see global
-  console.log(localVar);  // Works — same scope
+  console.log(globalVar); // Works - can see global
+  console.log(localVar);  // Works - same scope
 }
 
 
@@ -1328,17 +1328,17 @@ function myFunction() {
 
 2. Function scope; THis is when a variable is declared inside of a function
 function myFunction() {
-  // Function scope — only inside this function
+  // Function scope - only inside this function
   let localVar = "I'm local";
-  console.log(globalVar); // Works — can see global
-  console.log(localVar);  // Works — same scope
+  console.log(globalVar); // Works - can see global
+  console.log(localVar);  // Works - same scope
 }
 
 myFunction();
-// console.log(localVar); // ERROR — not accessible outside function
+// console.log(localVar); // ERROR - not accessible outside function
 3. Block scope; This are variables declared inside curly brackets{} 
 
-// Block scope — let and const only exist inside their {}
+// Block scope - let and const only exist inside their {}
 {
   let blockLet = "block scoped";
   const blockConst = "also block scoped";
@@ -1357,7 +1357,7 @@ JavaScript moves declarations to the top of their scope before running code:
 Types of Hoisting
 
 1. Function Hoisting
-// Function declarations are fully hoisted — can use before declaring
+// Function declarations are fully hoisted - can use before declaring
 sayHello(); // Works! Prints "Hello"
 
 function sayHello() {
@@ -1379,7 +1379,7 @@ let y = 10;
 console.log(y)
 ```
 
-> Always declare variables at the top of their scope. Use `let`/`const` — they protect you from hoisting bugs.
+> Always declare variables at the top of their scope. Use `let`/`const` - they protect you from hoisting bugs.
 
 
 
@@ -1400,11 +1400,11 @@ const person2 ={
   
 }
 
-// Access properties — dot notation
+// Access properties - dot notation
 console.log(person.name); // "Alice"
 console.log(person.age);  // 25
 
-// Access properties — bracket notation (useful with variables)
+// Access properties - bracket notation (useful with variables)
 let prop = "city";
 console.log(person[prop]); // "Lagos"
 
@@ -1419,7 +1419,7 @@ delete person.isStudent;
 
 ```
 
-### Methods — Functions inside Objects
+### Methods - Functions inside Objects
 
 ```javascript
 const car = {
@@ -1479,7 +1479,7 @@ console.log(email); // "not provided"
 const defaults = { theme: "light", language: "en", fontSize: 14 }
 const userSettings = { theme: "dark", fontSize: 18 };
 
-// Merge — userSettings overrides defaults
+// Merge - userSettings overrides defaults
 const settings = { ...defaults, ...userSettings };
 console.log(settings);
 
@@ -1539,10 +1539,10 @@ arr.unshift(0);     // Add to start → [0,1,2,3,4,5]
 arr.shift();        // Remove from start → [1,2,3,4,5]
                                             
 // Finding
-arr.indexOf(3);     // 2 — position of value 3
-arr.includes(3);    // true — does value 3 exist?
-arr.find(n => n > 3);       // 4 — first element where condition is true
-arr.findIndex(n => n > 3);  // 3 — index of first match
+arr.indexOf(3);     // 2 - position of value 3
+arr.includes(3);    // true - does value 3 exist?
+arr.find(n => n > 3);       // 4 - first element where condition is true
+arr.findIndex(n => n > 3);  // 3 - index of first match
 
 // Sorting
 arr.sort((a, b) => a - b); // Sort numbers ascending
@@ -1551,7 +1551,7 @@ arr.sort((a, b) => b - a); // Sort numbers descending [5,4,3,2,1]
 // Copying and combining
 const copy = [...arr];                 // Spread to copy
 const merged = [...arr, ...[6, 7]];   // Merge arrays
-const slice = arr.slice(1, 3);        // [2, 3] — copy portion
+const slice = arr.slice(1, 3);        // [2, 3] - copy portion
 ```
 
 ### Powerful Higher-Order Array Methods
@@ -1559,22 +1559,22 @@ const slice = arr.slice(1, 3);        // [2, 3] — copy portion
 ```javascript
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-// map — transform EVERY element, returns new array
+// map - transform EVERY element, returns new array
 const doubled = numbers.map(n => n * 2);
 // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 
-// filter — keep elements that PASS the test
+// filter - keep elements that PASS the test
 const evens = numbers.filter(n => n % 2 === 0);
 // [2, 4, 6, 8, 10]
 
-// reduce — combine all elements into ONE value
+// reduce - combine all elements into ONE value
 const sum = numbers.reduce((total, n) => total + n, 0);
 // 55
 
-// every — true only if ALL elements pass
+// every - true only if ALL elements pass
 const allPositive = numbers.every(n => n > 0); // true
 
-// some — true if ANY element passes
+// some - true if ANY element passes
 const hasNegative = numbers.some(n => n < 0); // false
 
 // Chaining methods together
@@ -1598,7 +1598,7 @@ for (let i = 0; i < fruits.length; i++) {
 
 
 
-# Chapter 20 — DOM Manipulation
+# Chapter 20 - DOM Manipulation
 
 ## What is the DOM?
 
@@ -1640,17 +1640,17 @@ Every item in that tree is called a **node**. Elements like `h1` and `li` are el
 Before you can change anything, you have to find it first. JavaScript gives you several ways to select elements from the DOM.
 
 ```javascript
-// getElementById — finds ONE element by its id attribute
+// getElementById - finds ONE element by its id attribute
 // Returns null if nothing is found
 const title = document.getElementById("title");
 
-// querySelector — finds the FIRST element that matches a CSS selector
+// querySelector - finds the FIRST element that matches a CSS selector
 // You can use any selector you already know from CSS
 const btn = document.querySelector(".btn");
 const firstParagraph = document.querySelector("p");
 const navLink = document.querySelector("nav a:hover");
 
-// querySelectorAll — finds ALL elements that match a CSS selector
+// querySelectorAll - finds ALL elements that match a CSS selector
 // Returns a NodeList (similar to an array)
 const allButtons = document.querySelectorAll("button");
 const allCards = document.querySelectorAll(".card");
@@ -1710,18 +1710,18 @@ Once you have selected an element, you can read or change what is inside it. The
 ```javascript
 const box = document.querySelector(".box");
 
-// textContent — reads or sets plain text only
+// textContent - reads or sets plain text only
 // Any HTML tags you write here show up as literal text on the page
 // This is the SAFE default. Always use this when dealing with user input.
 box.textContent = "Hello World";
 box.textContent = "<strong>Hello</strong>"; // shows exactly: <strong>Hello</strong>
 
-// innerHTML — reads or sets HTML including tags
+// innerHTML - reads or sets HTML including tags
 // The browser actually parses and renders whatever tags you put in here
-// Never put user-typed content directly into innerHTML — it is a security risk
+// Never put user-typed content directly into innerHTML - it is a security risk
 box.innerHTML = "<strong>Hello</strong>"; // renders the word Hello in bold
 
-// innerText — similar to textContent but CSS-aware
+// innerText - similar to textContent but CSS-aware
 // If an element is hidden with display:none, innerText ignores its text
 // textContent still returns it
 // innerText also runs slower because it triggers a layout calculation
@@ -1737,7 +1737,7 @@ Mental note:
 
 ## Changing Attributes
 
-Attributes are the extra details you add to HTML tags — like `src` on an image, `href` on a link, or `disabled` on a button.
+Attributes are the extra details you add to HTML tags - like `src` on an image, `href` on a link, or `disabled` on a button.
 
 ### Direct Property Access
 
@@ -1755,20 +1755,20 @@ link.target = "_blank"; // opens in a new tab
 
 ### setAttribute, getAttribute, removeAttribute
 
-For anything beyond the common attributes — especially custom attributes or accessibility attributes — use these three methods.
+For anything beyond the common attributes - especially custom attributes or accessibility attributes - use these three methods.
 
 ```javascript
 const btn = document.querySelector("button");
 
-// setAttribute(name, value) — sets any attribute
+// setAttribute(name, value) - sets any attribute
 btn.setAttribute("disabled", "true");
 btn.setAttribute("aria-label", "Close the menu");
 btn.setAttribute("data-id", "42");
 
-// getAttribute(name) — reads the current value of any attribute
+// getAttribute(name) - reads the current value of any attribute
 const label = btn.getAttribute("aria-label"); // "Close the menu"
 
-// removeAttribute(name) — deletes the attribute entirely
+// removeAttribute(name) - deletes the attribute entirely
 btn.removeAttribute("disabled"); // button is active again
 ```
 
@@ -1897,10 +1897,10 @@ afterend     ← outside, after the element
 ```javascript
 const original = document.querySelector(".card");
 
-// cloneNode(false) — copies the element but NOT its children
+// cloneNode(false) - copies the element but NOT its children
 const shallowCopy = original.cloneNode(false);
 
-// cloneNode(true) — copies the element AND everything inside it
+// cloneNode(true) - copies the element AND everything inside it
 const deepCopy = original.cloneNode(true);
 
 document.body.appendChild(deepCopy);
@@ -1919,7 +1919,7 @@ card.remove();
 
 ## Traversing the DOM
 
-Traversal means navigating the family tree of elements — moving from a parent to its children, from a child up to its parent, or sideways to a sibling. You need this whenever you click one element but need to find a related element nearby.
+Traversal means navigating the family tree of elements - moving from a parent to its children, from a child up to its parent, or sideways to a sibling. You need this whenever you click one element but need to find a related element nearby.
 
 Given this HTML:
 
@@ -1936,9 +1936,9 @@ const menu = document.getElementById("menu");
 
 // Moving DOWN to children
 console.log(menu.children);           // all three li elements
-console.log(menu.firstElementChild);  // first li — "Home"
-console.log(menu.lastElementChild);   // last li — "Contact"
-console.log(menu.children[1]);        // second li — "About"
+console.log(menu.firstElementChild);  // first li - "Home"
+console.log(menu.lastElementChild);   // last li - "Contact"
+console.log(menu.children[1]);        // second li - "About"
 
 // Moving UP to the parent
 const firstItem = menu.firstElementChild;
@@ -1946,7 +1946,7 @@ console.log(firstItem.parentElement); // the ul element
 
 // Moving SIDEWAYS to siblings
 console.log(firstItem.nextElementSibling);     // "About" li
-console.log(firstItem.previousElementSibling); // null — nothing before the first item
+console.log(firstItem.previousElementSibling); // null - nothing before the first item
 ```
 
 ### closest()
@@ -1970,7 +1970,7 @@ deleteBtn.addEventListener("click", function() {
 
 
 
-## Putting It All Together — Practical Example
+## Putting It All Together - Practical Example
 
 Here is a small task manager that combines everything from this chapter. Read through the comments carefully.
 
@@ -2081,14 +2081,14 @@ Here is a small task manager that combines everything from this chapter. Read th
 
 ### What is an Event?
  
-An event is something that happens in the browser — user clicks, types, scrolls, or moves their mouse. JavaScript can listen for and respond to these events.
+An event is something that happens in the browser - user clicks, types, scrolls, or moves their mouse. JavaScript can listen for and respond to these events.
 
 ### Adding Event Listeners
 
 ```javascript
 const button = document.getElementById("myBtn");
 
-// Best way — addEventListener
+// Best way - addEventListener
 button.addEventListener("click", function() {
   console.log("Button was clicked!");
 );
@@ -2098,7 +2098,7 @@ button.addEventListener("click", () => {
   console.log("Clicked!");
 });
 
-// Named function — easy to remove later
+// Named function - easy to remove later
 function handleClick() {
   console.log("Clicked!");
 }
@@ -2166,16 +2166,16 @@ window.addEventListener("resize", () => console.log("Window resized"));
 ### Types of Errors
 
 ```javascript
-// SyntaxError — code is written incorrectly (JS won't even run)
+// SyntaxError - code is written incorrectly (JS won't even run)
 // let x = ;  ← missing value
 
-// ReferenceError — using a variable that doesn't exist
+// ReferenceError - using a variable that doesn't exist
 // console.log(y); ← y is not defined
 
-// TypeError — wrong type being used
+// TypeError - wrong type being used
 // null.toString(); ← can't call method on null
 
-// RangeError — value out of allowed range
+// RangeError - value out of allowed range
 // new Array(-1); ← can't create array with negative length
 let fruits = [1,2,3,4,5,6];
 
@@ -2192,7 +2192,7 @@ function divide(a, b) {
 }
 
 try {
-  console.log(divide(10, 2));  // 5 — works fine
+  console.log(divide(10, 2));  // 5 - works fine
   console.log(divide(10, 0));  // throws error
 } catch (error) {
   console.log("Error caught:", error.message); // "Cannot divide by zero!"
@@ -2238,16 +2238,16 @@ Fix one thing at a time
 
 ### Synchronous vs Asynchronous
 
-By default, JavaScript is **synchronous** — it runs one thing at a time, in order.
+By default, JavaScript is **synchronous** - it runs one thing at a time, in order.
 
 ```javascript
-// Synchronous — waits for each line
+// Synchronous - waits for each line
 console.log("First");
 console.log("Second");
 console.log("Third");
 // Output: First, Second, Third (always in order)
 
-// Asynchronous — doesn't wait
+// Asynchronous - doesn't wait
 console.log("First");
 setTimeout(() => {
   console.log("Second"); // Delayed by 2 seconds
@@ -2293,12 +2293,12 @@ fetchData(
 );
 ```
 
-### Callback Hell — The Problem
+### Callback Hell - The Problem
 
 Deeply nesting callbacks becomes hard to read and maintain:
 
 ```javascript
-// This is called "callback hell" — hard to read!
+// This is called "callback hell" - hard to read!
 getUser(userId, function(user) {
   getPosts(user.id, function(posts) {
     getComments(posts[0].id, function(comments) {
@@ -2319,9 +2319,9 @@ This pyramid of doom called nested callbacks is why **Promises** and **Async/Awa
 ### What is a Promise?
 
 A Promise represents a value that will be available in the future. It can be:
-- **Pending** — still waiting for the result
-- **Fulfilled** — completed successfully, has a value
-- **Rejected** — failed, has an error
+- **Pending** - still waiting for the result
+- **Fulfilled** - completed successfully, has a value
+- **Rejected** - failed, has an error
 
 ```javascript
 // Creating a Promise
@@ -2346,7 +2346,7 @@ myPromise
     console.log("Error:", error.message);
   })
   .finally(() => {
-    console.log("Always runs — success or failure");
+    console.log("Always runs - success or failure");
   });
 ```
 
@@ -2374,7 +2374,7 @@ const p1 = fetch("/api/users");
 const p2 = fetch("/api/products");
 const p3 = fetch("/api/orders");
 
-// Wait for ALL — fails if any one fails
+// Wait for ALL - fails if any one fails
 Promise.all([p1, p2, p3])
   .then(([users, products, orders]) => {
     console.log("All loaded!");
@@ -2438,7 +2438,7 @@ main();
 ### Async/Await vs Promise Chains
 
 ```javascript
-// Same goal — fetch a user and their posts
+// Same goal - fetch a user and their posts
 
 // Promise chain way
 function getUserAndPosts(userId) {
@@ -2449,7 +2449,7 @@ function getUserAndPosts(userId) {
     .then(posts => console.log(posts));
 }
 
-// Async/Await way — much cleaner!
+// Async/Await way - much cleaner!
 async function getUserAndPosts(userId) {
   const userRes = await fetch(`/users/${userId}`);
   const user = await userRes.json();
@@ -2467,33 +2467,33 @@ async function getUserAndPosts(userId) {
 
 ### How JavaScript Handles Async Code
 
-JavaScript is **single-threaded** — it can only do one thing at a time. The **Event Loop** is the mechanism that lets it handle async tasks without freezing.
+JavaScript is **single-threaded** - it can only do one thing at a time. The **Event Loop** is the mechanism that lets it handle async tasks without freezing.
 
 **The components:**
-- **Call Stack** — runs your code, one function at a time
-- **Web APIs** — browser handles async tasks (setTimeout, fetch) here
-- **Callback Queue** — finished async callbacks wait here
-- **Microtask Queue** — Promises resolve here (higher priority than callback queue)
-- **Event Loop** — watches the call stack; when empty, moves next task in
+- **Call Stack** - runs your code, one function at a time
+- **Web APIs** - browser handles async tasks (setTimeout, fetch) here
+- **Callback Queue** - finished async callbacks wait here
+- **Microtask Queue** - Promises resolve here (higher priority than callback queue)
+- **Event Loop** - watches the call stack; when empty, moves next task in
 
 ```javascript
-console.log("1 — Start");
+console.log("1 - Start");
 
 setTimeout(() => {
-  console.log("2 — setTimeout (macrotask)");
+  console.log("2 - setTimeout (macrotask)");
 }, 0);
 
 Promise.resolve().then(() => {
-  console.log("3 — Promise (microtask)");
+  console.log("3 - Promise (microtask)");
 });
 
-console.log("4 — End");
+console.log("4 - End");
 
 // Output order:
-// 1 — Start       (synchronous)
-// 4 — End         (synchronous)
-// 3 — Promise     (microtask — runs before macrotasks!)
-// 2 — setTimeout  (macrotask — runs last)
+// 1 - Start       (synchronous)
+// 4 - End         (synchronous)
+// 3 - Promise     (microtask - runs before macrotasks!)
+// 2 - setTimeout  (macrotask - runs last)
 ```
 
 > Key insight: Promises (microtasks) always run before setTimeout/setInterval (macrotasks), even if both are set to 0ms.
@@ -2561,7 +2561,7 @@ const config = { host: "localhost", port: 3000 };
 // Use Map when: keys aren't strings, need size property, frequent add/delete
 const elementClickCounts = new Map();
 const button = document.getElementById("btn");
-elementClickCounts.set(button, 0); // DOM element as key — impossible with Object!
+elementClickCounts.set(button, 0); // DOM element as key - impossible with Object!
 ```
 
 
@@ -2578,8 +2578,8 @@ const mySet = new Set();
 mySet.add(1);
 mySet.add(2);
 mySet.add(3);
-mySet.add(2); // Duplicate — silently ignored
-mySet.add(1); // Duplicate — silently ignored
+mySet.add(2); // Duplicate - silently ignored
+mySet.add(1); // Duplicate - silently ignored
 
 console.log(mySet.size); // 3 (not 5!)
 console.log(mySet);      // Set { 1, 2, 3 }
@@ -2595,7 +2595,7 @@ for (const value of mySet) {
 }
 ```
 
-### Most Common Use — Remove Duplicates
+### Most Common Use - Remove Duplicates
 
 ```javascript
 const numbers = [1, 2, 3, 2, 4, 1, 5, 3, 6];
@@ -2604,7 +2604,7 @@ const numbers = [1, 2, 3, 2, 4, 1, 5, 3, 6];
 const unique = [...new Set(numbers)];
 console.log(unique); // [1, 2, 3, 4, 5, 6]
 
-// Real use case — unique tags
+// Real use case - unique tags
 const tags = ["javascript", "css", "html", "javascript", "css"];
 const uniqueTags = [...new Set(tags)];
 console.log(uniqueTags); // ["javascript", "css", "html"]
@@ -2616,12 +2616,12 @@ console.log(uniqueTags); // ["javascript", "css", "html"]
 
 ### What is a Stack?
 
-A Stack follows **LIFO — Last In, First Out**. Like a stack of plates — you add to the top and take from the top.
+A Stack follows **LIFO - Last In, First Out**. Like a stack of plates - you add to the top and take from the top.
 
 Core operations:
-- **push** — add item to top
-- **pop** — remove item from top
-- **peek** — look at top without removing
+- **push** - add item to top
+- **pop** - remove item from top
+- **peek** - look at top without removing
 
 ```javascript
 class Stack {
@@ -2669,12 +2669,12 @@ Real-world uses: browser back button, undo/redo, function call tracking.
 
 ### What is a Queue?
 
-A Queue follows **FIFO — First In, First Out**. Like a checkout line — first person in is first to be served.
+A Queue follows **FIFO - First In, First Out**. Like a checkout line - first person in is first to be served.
 
 Core operations:
-- **enqueue** — add item to back
-- **dequeue** — remove item from front
-- **peek** — look at front without removing
+- **enqueue** - add item to back
+- **dequeue** - remove item from front
+- **peek** - look at front without removing
 
 ```javascript
 class Queue {
@@ -2708,7 +2708,7 @@ queue.enqueue("Alice");    // Joined queue: Alice
 queue.enqueue("Bob");      // Joined queue: Bob
 queue.enqueue("Charlie");  // Joined queue: Charlie
 
-console.log(queue.peek()); // "Alice" — first in line
+console.log(queue.peek()); // "Alice" - first in line
 queue.dequeue(); // Served: Alice
 queue.dequeue(); // Served: Bob
 console.log(queue.size()); // 1
@@ -2725,9 +2725,9 @@ Real-world uses: print queues, task schedulers, event handling systems.
 An algorithm is a step-by-step set of instructions to solve a problem. Good algorithms are correct, efficient, and readable.
 
 Key things to evaluate:
-- **Correctness** — does it always give the right answer?
-- **Efficiency** — how fast? How much memory?
-- **Clarity** — can others understand it?
+- **Correctness** - does it always give the right answer?
+- **Efficiency** - how fast? How much memory?
+- **Clarity** - can others understand it?
 
 The topics that follow are the most essential algorithm types every JavaScript developer should know.
 
@@ -2735,7 +2735,7 @@ The topics that follow are the most essential algorithm types every JavaScript d
 
 ## 34. Searching
 
-### Linear Search — Check Each One
+### Linear Search - Check Each One
 
 Checks every element until the target is found. Works on unsorted arrays.
 
@@ -2752,12 +2752,12 @@ function linearSearch(array, target) {
 const fruits = ["apple", "banana", "cherry", "mango", "grape"];
 console.log(linearSearch(fruits, "cherry")); // 2
 console.log(linearSearch(fruits, "kiwi"));   // -1
-// Performance: O(n) — must check up to every element
+// Performance: O(n) - must check up to every element
 ```
 
-### Binary Search — Divide and Conquer
+### Binary Search - Divide and Conquer
 
-Only works on **sorted** arrays. Cuts the search space in half each step — extremely fast.
+Only works on **sorted** arrays. Cuts the search space in half each step - extremely fast.
 
 ```javascript
 function binarySearch(array, target) {
@@ -2782,14 +2782,14 @@ function binarySearch(array, target) {
 const sorted = [2, 5, 8, 12, 16, 23, 38, 45, 62, 78, 99];
 console.log(binarySearch(sorted, 23)); // 5
 console.log(binarySearch(sorted, 50)); // -1
-// Performance: O(log n) — 1 million items needs only ~20 checks!
+// Performance: O(log n) - 1 million items needs only ~20 checks!
 ```
 
 
 
 ## 35. Sorting
 
-### Bubble Sort — Simple but Slow
+### Bubble Sort - Simple but Slow
 
 Repeatedly compares and swaps adjacent elements until sorted.
 
@@ -2812,10 +2812,10 @@ function bubbleSort(array) {
 const nums = [64, 34, 25, 12, 22, 11, 90];
 console.log(bubbleSort(nums));
 // [11, 12, 22, 25, 34, 64, 90]
-// Performance: O(n²) — slow for large arrays
+// Performance: O(n²) - slow for large arrays
 ```
 
-### Merge Sort — Fast and Reliable
+### Merge Sort - Fast and Reliable
 
 Divides array in half, sorts each half recursively, then merges them.
 
@@ -2849,7 +2849,7 @@ function merge(left, right) {
 
 console.log(mergeSort([38, 27, 43, 3, 9, 82, 10]));
 // [3, 9, 10, 27, 38, 43, 82]
-// Performance: O(n log n) — much better for large arrays!
+// Performance: O(n log n) - much better for large arrays!
 ```
 
 
@@ -2859,15 +2859,15 @@ console.log(mergeSort([38, 27, 43, 3, 9, 82, 10]));
 ### What is Recursion?
 
 Recursion is when a function calls itself. Every recursive function MUST have:
-1. A **base case** — a condition to STOP (prevents infinite loop)
-2. A **recursive case** — the function calling itself with a smaller input
+1. A **base case** - a condition to STOP (prevents infinite loop)
+2. A **recursive case** - the function calling itself with a smaller input
 
 ```javascript
-// Classic example — Factorial
+// Classic example - Factorial
 // 5! = 5 × 4 × 3 × 2 × 1 = 120
 
 function factorial(n) {
-  if (n === 0 || n === 1) return 1; // Base case — STOP
+  if (n === 0 || n === 1) return 1; // Base case - STOP
   return n * factorial(n - 1);      // Recursive case
 }
 
@@ -2918,25 +2918,25 @@ Big O describes how the performance of your code SCALES as the input grows. It's
 ### Common Complexities
 
 ```javascript
-// O(1) — Constant: always same speed, no matter the input size
+// O(1) - Constant: always same speed, no matter the input size
 function getFirstItem(array) {
   return array[0]; // One operation always
 }
 
-// O(log n) — Logarithmic: doubling input adds only 1 step (Binary Search)
+// O(log n) - Logarithmic: doubling input adds only 1 step (Binary Search)
 function binarySearch(arr, target) { /* ... */ }
 
-// O(n) — Linear: doubling input doubles the time (Linear Search)
+// O(n) - Linear: doubling input doubles the time (Linear Search)
 function findItem(array, target) {
   for (let item of array) { // Checks every element once
     if (item === target) return item;
   }
 }
 
-// O(n log n) — Good sorting (Merge Sort, Quick Sort)
+// O(n log n) - Good sorting (Merge Sort, Quick Sort)
 function mergeSort(array) { /* ... */ }
 
-// O(n²) — Quadratic: doubling input quadruples the time
+// O(n²) - Quadratic: doubling input quadruples the time
 function bubbleSort(array) {
   for (let i = 0; i < array.length; i++) {         // n times
     for (let j = 0; j < array.length - i; j++) {   // n times each
@@ -2951,14 +2951,14 @@ function bubbleSort(array) {
 How much memory does your algorithm use?
 
 ```javascript
-// O(1) space — always uses same amount of memory
+// O(1) space - always uses same amount of memory
 function sumArray(array) {
   let total = 0; // Only one extra variable
   for (let n of array) total += n;
   return total;
 }
 
-// O(n) space — creates a new array the same size as input
+// O(n) space - creates a new array the same size as input
 function doubleAll(array) {
   return array.map(n => n * 2); // New array same length as input
 }
@@ -2984,10 +2984,10 @@ function doubleAll(array) {
 Object-Oriented Programming organizes code around **objects** that combine data (properties) and behavior (methods). It makes code more organized, reusable, and easier to maintain.
 
 The four pillars of OOP:
-1. **Encapsulation** — bundle related data and methods together
-2. **Inheritance** — a class can get properties/methods from a parent class
-3. **Polymorphism** — different classes can share the same interface
-4. **Abstraction** — hide complex details, show only what's needed
+1. **Encapsulation** - bundle related data and methods together
+2. **Inheritance** - a class can get properties/methods from a parent class
+3. **Polymorphism** - different classes can share the same interface
+4. **Abstraction** - hide complex details, show only what's needed
 
 ---
 
@@ -3000,7 +3000,7 @@ Every JavaScript object has a hidden link to another object called its **prototy
 ```javascript
 // All arrays share methods from Array.prototype
 const arr = [1, 2, 3];
-arr.push(4); // 'push' comes from Array.prototype — not the array itself!
+arr.push(4); // 'push' comes from Array.prototype - not the array itself!
 
 // You can inspect the prototype
 console.log(Object.getPrototypeOf(arr) === Array.prototype); // true
@@ -3039,7 +3039,7 @@ A class is a **blueprint** for creating objects. It defines what properties and 
 
 ```javascript
 class Person {
-  // Constructor — runs when you create a new Person
+  // Constructor - runs when you create a new Person
   constructor(name, age) {
     this.name = name;
     this.age = age;
@@ -3050,17 +3050,17 @@ class Person {
     return `Hi! I'm ${this.name} and I'm ${this.age} years old.`;
   }
 
-  // Getter — access like a property, not a method call
+  // Getter - access like a property, not a method call
   get info() {
     return `${this.name} (${this.age})`;
   }
 
-  // Setter — set a value with custom logic
+  // Setter - set a value with custom logic
   set birthYear(year) {
     this.age = new Date().getFullYear() - year;
   }
 
-  // Static method — called on the class itself, not instances
+  // Static method - called on the class itself, not instances
   static createGuest() {
     return new Person("Guest", 0);
   }
@@ -3070,18 +3070,18 @@ const alice = new Person("Alice", 25);
 const bob = new Person("Bob", 30);
 
 console.log(alice.greet()); // Hi! I'm Alice and I'm 25 years old.
-console.log(alice.info);    // "Alice (25)" — getter
-alice.birthYear = 2000;     // setter — updates age
+console.log(alice.info);    // "Alice (25)" - getter
+alice.birthYear = 2000;     // setter - updates age
 
 const guest = Person.createGuest(); // static method
 console.log(guest.name); // "Guest"
 ```
 
-### Private Fields — Keep Data Safe
+### Private Fields - Keep Data Safe
 
 ```javascript
 class BankAccount {
-  #balance; // '#' makes it private — can only be accessed inside the class
+  #balance; // '#' makes it private - can only be accessed inside the class
 
   constructor(initial) {
     this.#balance = initial;
@@ -3107,7 +3107,7 @@ class BankAccount {
 const account = new BankAccount(500);
 account.deposit(200).withdraw(100); // Method chaining
 console.log(account.balance); // 600
-// console.log(account.#balance); // ERROR — private!
+// console.log(account.#balance); // ERROR - private!
 ```
 
 
@@ -3141,7 +3141,7 @@ class Animal {
   }
 }
 
-// Child class — inherits from Animal
+// Child class - inherits from Animal
 class Dog extends Animal {
   constructor(name, breed) {
     super(name, "Woof"); // Call parent constructor
@@ -3171,18 +3171,18 @@ class Cat extends Animal {
 }
 
 const dog = new Dog("Rex", "Labrador");
-dog.speak();         // "Rex barks loudly: WOOF WOOF!" — overridden
+dog.speak();         // "Rex barks loudly: WOOF WOOF!" - overridden
 dog.eat("kibble");   // inherited from Animal
 dog.fetch("ball");   // Dog-specific
 
 const cat = new Cat("Whiskers");
-cat.speak();  // "Whiskers says Meow!" — inherited original
+cat.speak();  // "Whiskers says Meow!" - inherited original
 cat.purr();   // Cat-specific
 
 // instanceof checks
 console.log(dog instanceof Dog);    // true
-console.log(dog instanceof Animal); // true — dog IS an Animal
-console.log(cat instanceof Dog);    // false — cat is NOT a Dog
+console.log(dog instanceof Animal); // true - dog IS an Animal
+console.log(cat instanceof Dog);    // false - cat is NOT a Dog
 ```
 
 
@@ -3198,13 +3198,13 @@ Modules let you split code into separate files. Each file can **export** things 
 ```javascript
 // utils/math.js
 
-// Named exports — can export many things
+// Named exports - can export many things
 export function add(a, b) { return a + b; }
 export function subtract(a, b) { return a - b; }
 export function multiply(a, b) { return a * b; }
 export const PI = 3.14159265;
 
-// Default export — one main export per file
+// Default export - one main export per file
 export default function calculate(a, operator, b) {
   switch (operator) {
     case "+": return a + b;
@@ -3270,21 +3270,21 @@ my-project/
 
 ### How JavaScript Manages Memory
 
-JavaScript automatically handles memory through **Garbage Collection** — you don't manually free memory like in C/C++.
+JavaScript automatically handles memory through **Garbage Collection** - you don't manually free memory like in C/C++.
 
 Three stages:
-1. **Allocation** — memory reserved when you create variables/objects
-2. **Use** — reading and writing to that memory
-3. **Release** — when data is no longer referenced, JS frees the memory
+1. **Allocation** - memory reserved when you create variables/objects
+2. **Use** - reading and writing to that memory
+3. **Release** - when data is no longer referenced, JS frees the memory
 
 ```javascript
-// Memory allocated — person object in memory
+// Memory allocated - person object in memory
 let person = { name: "Alice", scores: new Array(1000) };
 
-// Reference removed — GC can now free this memory
+// Reference removed - GC can now free this memory
 person = null;
 
-// Block scope — memory freed when block ends
+// Block scope - memory freed when block ends
 {
   let tempData = new Array(10000);
   // tempData is available here
@@ -3303,7 +3303,7 @@ function handleClick() { console.log("Clicked"); }
 
 button.addEventListener("click", handleClick);
 
-// If button is removed but listener not cleaned up — LEAK!
+// If button is removed but listener not cleaned up - LEAK!
 // Always clean up:
 button.removeEventListener("click", handleClick);
 
@@ -3315,10 +3315,10 @@ const intervalId = setInterval(() => {
 // Clean up when no longer needed
 clearInterval(intervalId);
 
-// 3. Global variables — live as long as the page does
+// 3. Global variables - live as long as the page does
 window.hugeDataset = new Array(1000000); // Avoid this!
 
-// Better — keep in limited scope
+// Better - keep in limited scope
 function processData() {
   const data = new Array(1000000);
   // process data...
@@ -3334,10 +3334,10 @@ function processData() {
 
 Browsers provide built-in interfaces that let JavaScript interact with the browser and the wider web.
 
-### Fetch API — Get Data from Servers
+### Fetch API - Get Data from Servers
 
 ```javascript
-// GET request — fetch data
+// GET request - fetch data
 async function getUsers() {
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -3353,7 +3353,7 @@ async function getUsers() {
   }
 }
 
-// POST request — send data to server
+// POST request - send data to server
 async function createPost(postData) {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
     method: "POST",
@@ -3372,10 +3372,10 @@ createPost({ title: "Hello", body: "World", userId: 1 })
   .then(newPost => console.log(newPost));
 ```
 
-### localStorage — Store Data in Browser
+### localStorage - Store Data in Browser
 
 ```javascript
-// Store data — stays even after closing browser
+// Store data - stays even after closing browser
 localStorage.setItem("username", "Alice");
 localStorage.setItem("theme", "dark");
 
@@ -3383,7 +3383,7 @@ localStorage.setItem("theme", "dark");
 const username = localStorage.getItem("username"); // "Alice"
 const theme = localStorage.getItem("theme");       // "dark"
 
-// Store objects — must convert to/from JSON string
+// Store objects - must convert to/from JSON string
 const settings = { volume: 80, language: "en", notifications: true };
 localStorage.setItem("settings", JSON.stringify(settings));
 
@@ -3416,7 +3416,7 @@ Notification.requestPermission().then(permission => {
   }
 });
 
-// IntersectionObserver — detect when element scrolls into view
+// IntersectionObserver - detect when element scrolls into view
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -3439,10 +3439,10 @@ document.querySelectorAll(".card").forEach(card => {
 Code is read far more than it's written. Always write for the next person reading it (which might be you in 6 months!).
 
 ```javascript
-// BAD — clever but unreadable
+// BAD - clever but unreadable
 const r = d.filter(u => u.a > 18).map(u => u.n).join(", ");
 
-// GOOD — clear and self-documenting
+// GOOD - clear and self-documenting
 const adultUsers = users.filter(user => user.age > 18);
 const adultNames = adultUsers.map(user => user.name);
 const nameList = adultNames.join(", ");
@@ -3451,12 +3451,12 @@ const nameList = adultNames.join(", ");
 ### Use Meaningful, Descriptive Names
 
 ```javascript
-// BAD — vague, meaningless names
+// BAD - vague, meaningless names
 let d = 30;
 let arr = [];
 function fn(x, y) { return x + y; }
 
-// GOOD — descriptive names
+// GOOD - descriptive names
 let subscriptionDurationDays = 30;
 let activeUserProfiles = [];
 function calculateOrderTotal(subtotal, taxRate) {
@@ -3467,7 +3467,7 @@ function calculateOrderTotal(subtotal, taxRate) {
 ### Keep Functions Small and Focused
 
 ```javascript
-// BAD — one monster function doing everything
+// BAD - one monster function doing everything
 async function handleCheckout(cart, user) {
   // Validate cart
   if (cart.items.length === 0) throw new Error("Empty cart");
@@ -3488,7 +3488,7 @@ async function handleCheckout(cart, user) {
   cart.items.forEach(item => updateStock(item.id, -item.quantity));
 }
 
-// GOOD — each function has one clear job
+// GOOD - each function has one clear job
 function validateCart(cart) {
   if (cart.items.length === 0) throw new Error("Cart is empty");
 }
@@ -3511,14 +3511,14 @@ async function handleCheckout(cart, user) {
 }
 ```
 
-### Avoid Magic Numbers — Use Named Constants
+### Avoid Magic Numbers - Use Named Constants
 
 ```javascript
-// BAD — what does 86400 mean?
+// BAD - what does 86400 mean?
 const seconds = days * 86400;
 if (score > 1000) unlockAchievement();
 
-// GOOD — named constants explain the meaning
+// GOOD - named constants explain the meaning
 const SECONDS_PER_DAY = 60 * 60 * 24;  // 86400
 const ACHIEVEMENT_THRESHOLD = 1000;
 
@@ -3529,15 +3529,15 @@ if (score > ACHIEVEMENT_THRESHOLD) unlockAchievement();
 ### Handle Errors Properly
 
 ```javascript
-// BAD — errors silently swallowed
+// BAD - errors silently swallowed
 async function fetchData(url) {
   try {
     const res = await fetch(url);
     return res.json();
-  } catch (e) {}  // Empty catch — error disappears!
+  } catch (e) {}  // Empty catch - error disappears!
 }
 
-// GOOD — errors handled and communicated properly
+// GOOD - errors handled and communicated properly
 async function fetchData(url) {
   try {
     const response = await fetch(url);
@@ -3586,18 +3586,18 @@ for (const item of items) {
 }
 ```
 
-### Final Checklist — Before You Submit Your Code
+### Final Checklist - Before You Submit Your Code
 
 - Use `const` by default, `let` when needed, never `var`
 - Use `===` (strict equality) always, not `==`
 - Handle all Promise rejections with `.catch()` or try/catch
 - Remove `console.log` debug statements before deploying
 - Name every variable and function descriptively
-- Keep functions short — if it's longer than 20-30 lines, consider splitting it
+- Keep functions short - if it's longer than 20-30 lines, consider splitting it
 - Validate input that comes from users or external sources
-- Comment the WHY (not the WHAT — the code shows that)
-- Avoid deeply nested code — more than 3-4 levels means refactor
-- Use version control (Git) — commit often with clear messages
+- Comment the WHY (not the WHAT - the code shows that)
+- Avoid deeply nested code - more than 3-4 levels means refactor
+- Use version control (Git) - commit often with clear messages
 
 
 
@@ -3605,13 +3605,13 @@ for (const item of items) {
 
 Now that you've completed this JavaScript course:
 
-1. **Build real projects** — todo app, quiz game, weather app, expense tracker
-2. **Practice algorithms** — solve problems on [leetcode.com](https://leetcode.com) or [codewars.com](https://codewars.com)
-3. **Learn React** — the most popular JavaScript UI framework
-4. **Learn Node.js** — run JavaScript on the server
-5. **Learn TypeScript** — JavaScript with types (used in professional teams)
-6. **Learn Git and GitHub** — version control is non-negotiable
-7. **Read the MDN Docs** — [developer.mozilla.org](https://developer.mozilla.org) is your best reference forever
+1. **Build real projects** - todo app, quiz game, weather app, expense tracker
+2. **Practice algorithms** - solve problems on [leetcode.com](https://leetcode.com) or [codewars.com](https://codewars.com)
+3. **Learn React** - the most popular JavaScript UI framework
+4. **Learn Node.js** - run JavaScript on the server
+5. **Learn TypeScript** - JavaScript with types (used in professional teams)
+6. **Learn Git and GitHub** - version control is non-negotiable
+7. **Read the MDN Docs** - [developer.mozilla.org](https://developer.mozilla.org) is your best reference forever
 
 
 
@@ -3645,4 +3645,4 @@ Now that you've completed this JavaScript course:
 
 
 
-*Remember — reading about programming is just the beginning. The real learning happens when you open a code editor and start building things. Write code every day, break things, fix them, and build projects you're proud of. You've got this! *
+*Remember - reading about programming is just the beginning. The real learning happens when you open a code editor and start building things. Write code every day, break things, fix them, and build projects you're proud of. You've got this! *

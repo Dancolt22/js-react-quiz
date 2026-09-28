@@ -1,8 +1,8 @@
-# EvalForge — JavaScript & React 19 Exam & Assessment Portal ⚡⚛️
+# DFI JS/REACT Quiz - JavaScript & React 19 Exam & Assessment Portal ⚡⚛️
 
 > **State-of-the-Art Examination & Practice Portal for JavaScript (ES6+) and React 19**
 
-EvalForge is a comprehensive developer evaluation platform designed to test, assess, and reinforce deep knowledge across modern JavaScript and React 19 through 400 authentic, verified multiple-choice questions with code snippets, detailed explanations, and pro tips.
+DFI JS/REACT Quiz is a comprehensive developer evaluation platform designed to test, assess, and reinforce deep knowledge across modern JavaScript and React 19 through 400 authentic, verified multiple-choice questions with code snippets, detailed explanations, and pro tips.
 
 ---
 

@@ -318,7 +318,7 @@ createRoot(document.getElementById('root')).render(
     ],
     correctAnswer: 0,
     explanation: "`node_modules` contains gigabytes of platform-dependent third-party files. Since `package.json` and `package-lock.json` record the exact dependency versions, anyone can recreate `node_modules` by running `npm install`.",
-    tip: "Never commit `node_modules` — always commit `package.json` and `package-lock.json`."
+    tip: "Never commit `node_modules` - always commit `package.json` and `package-lock.json`."
   },
   {
     id: "r19-m2-08",
@@ -520,7 +520,7 @@ const element = <h1>Hello, {username}!</h1>;`,
   </div>
 );`,
     options: [
-      "`{/* Comment text */}` — JavaScript block comment wrapped in JSX curly braces.",
+      "`{/* Comment text */}` - JavaScript block comment wrapped in JSX curly braces.",
       "`<!-- Comment text -->`",
       "`// Comment text` directly in JSX",
       "`# Comment text`"
@@ -634,7 +634,7 @@ return <ul>{items}</ul>;`,
     question: "What are 'Props' in React?",
     code: `<UserCard name="Alex" role="Admin" age={28} />`,
     options: [
-      "Short for 'Properties' — read-only inputs passed from a parent component to a child component to customize its rendering and behavior.",
+      "Short for 'Properties' - read-only inputs passed from a parent component to a child component to customize its rendering and behavior.",
       "Mutable internal state variables created by `useState`.",
       "CSS animations created in stylesheets.",
       "Database credentials stored in `.env`."

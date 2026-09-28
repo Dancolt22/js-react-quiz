@@ -431,7 +431,7 @@ export const COURSES = {
   javascript: {
     id: 'javascript',
     title: 'JavaScript Core & Web APIs',
-    subtitle: 'From Zero to Professional — Comprehensive JavaScript Certification & Exam',
+    subtitle: 'From Zero to Professional - Comprehensive JavaScript Certification & Exam',
     icon: 'FileCode2',
     color: '#dc2626',
     totalBankQuestions: 200,
@@ -443,7 +443,7 @@ export const COURSES = {
   react: {
     id: 'react',
     title: 'React 19 & Modern UI Development',
-    subtitle: 'Full Modern React Course — Components, Hooks, React 19 Actions & Routing',
+    subtitle: 'Full Modern React Course - Components, Hooks, React 19 Actions & Routing',
     icon: 'Atom',
     color: '#dc2626',
     totalBankQuestions: 200,
@@ -455,7 +455,7 @@ export const COURSES = {
   both: {
     id: 'both',
     title: 'Dual Master Marathon (JS + React 19)',
-    subtitle: 'Complete Full-Stack Frontend Evaluation — 80 Questions Across All Topics',
+    subtitle: 'Complete Full-Stack Frontend Evaluation - 80 Questions Across All Topics',
     icon: 'Layers',
     color: '#b91c1c',
     totalBankQuestions: 400,

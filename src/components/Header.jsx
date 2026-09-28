@@ -51,7 +51,7 @@ export default function Header({
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <span style={{ fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.02em' }} className="gradient-text-brand">
-                EvalForge
+                DFI JS/REACT Quiz
               </span>
               <span style={{
                 fontSize: '0.68rem',

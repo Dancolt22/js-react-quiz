@@ -1,11 +1,11 @@
 // LocalStorage persistence for user quiz progress, bookmarks, mistakes, and stats
 
 const STORAGE_KEYS = {
-  BOOKMARKS: 'evalforge_bookmarks',
-  MISTAKES: 'evalforge_mistakes',
-  STATS: 'evalforge_stats',
-  HISTORY: 'evalforge_history',
-  SETTINGS: 'evalforge_settings'
+  BOOKMARKS: 'dfi_quiz_bookmarks',
+  MISTAKES: 'dfi_quiz_mistakes',
+  STATS: 'dfi_quiz_stats',
+  HISTORY: 'dfi_quiz_history',
+  SETTINGS: 'dfi_quiz_settings'
 };
 
 export const getStoredBookmarks = () => {
