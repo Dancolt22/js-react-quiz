@@ -1,6 +1,5 @@
 import React from 'react';
 import { 
-  Sparkles, 
   Code2, 
   Atom, 
   Volume2, 
@@ -28,171 +27,157 @@ export default function Header({
   totalJsQuestions = 200,
   totalReactQuestions = 200
 }) {
+  const isJs = currentTrack === 'javascript';
+
   return (
     <header className="header-top glass-nav">
       <div className="header-content">
-        {/* Brand Logo */}
+        {/* Brand Identity */}
         <div 
           onClick={onNavigateHome}
           style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}
+          title="Back to Dashboard"
         >
           <div style={{
-            width: '40px',
-            height: '40px',
-            borderRadius: '12px',
-            background: 'linear-gradient(135deg, #6366f1, #a855f7)',
+            width: '38px',
+            height: '38px',
+            borderRadius: '8px',
+            background: 'var(--brand-red)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 0 15px rgba(99, 102, 241, 0.4)'
+            flexShrink: 0
           }}>
-            <Code2 size={22} color="#ffffff" />
+            <Code2 size={20} color="#ffffff" />
           </div>
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{ fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.02em' }} className="gradient-text-brand">
-                DFI JS/REACT Quiz
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-0.02em', color: 'var(--text-primary)' }}>
+                DFI Quiz
               </span>
-              <span style={{
-                fontSize: '0.68rem',
-                fontWeight: 700,
-                background: 'rgba(99, 102, 241, 0.2)',
-                color: '#a5b4fc',
-                padding: '2px 6px',
-                borderRadius: '4px',
-                border: '1px solid rgba(99, 102, 241, 0.3)'
-              }}>
-                v2.0
+              <span className="badge badge-brand" style={{ fontSize: '0.72rem' }}>
+                {isJs ? 'JavaScript' : 'React 19'}
               </span>
             </div>
-            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '-2px' }}>
-              JS & React 19 Exam Portal
+            <p style={{ fontSize: '0.76rem', color: 'var(--text-muted)', marginTop: '-2px' }}>
+              Exam & Practice Portal • 400 Questions
             </p>
           </div>
         </div>
 
-        {/* Track Switcher (Only visible when not inside active quiz session or for quick jump) */}
-        <div style={{
+        {/* Minimalist Segmented Track Switcher */}
+        <div className="track-switcher-group" style={{
           display: 'flex',
-          background: 'rgba(15, 23, 42, 0.8)',
-          padding: '4px',
-          borderRadius: 'var(--radius-md)',
-          border: '1px solid var(--border-subtle)',
-          gap: '4px'
+          background: '#f1f5f9',
+          padding: '3px',
+          borderRadius: '8px',
+          border: '1px solid var(--border-primary)',
+          gap: '2px'
         }}>
           <button
+            id="btn-track-javascript"
             onClick={() => {
               soundFx.playClick();
               onSelectTrack('javascript');
             }}
             style={{
               padding: '6px 14px',
-              borderRadius: '8px',
-              fontSize: '0.85rem',
+              borderRadius: '6px',
+              fontSize: '0.84rem',
               fontWeight: 600,
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              transition: 'all 0.2s',
-              background: currentTrack === 'javascript' ? 'rgba(247, 223, 30, 0.15)' : 'transparent',
-              color: currentTrack === 'javascript' ? '#facc15' : 'var(--text-secondary)',
-              border: currentTrack === 'javascript' ? '1px solid rgba(247, 223, 30, 0.4)' : '1px solid transparent'
+              transition: 'all var(--transition-fast)',
+              background: isJs ? '#ffffff' : 'transparent',
+              color: isJs ? 'var(--text-primary)' : 'var(--text-muted)',
+              border: isJs ? '1px solid var(--border-primary)' : '1px solid transparent',
+              boxShadow: isJs ? 'var(--shadow-sm)' : 'none'
             }}
           >
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#facc15' }} />
+            <Code2 size={15} color={isJs ? 'var(--brand-red)' : 'var(--text-muted)'} />
             JavaScript ({totalJsQuestions})
           </button>
 
           <button
+            id="btn-track-react"
             onClick={() => {
               soundFx.playClick();
               onSelectTrack('react');
             }}
             style={{
               padding: '6px 14px',
-              borderRadius: '8px',
-              fontSize: '0.85rem',
+              borderRadius: '6px',
+              fontSize: '0.84rem',
               fontWeight: 600,
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              transition: 'all 0.2s',
-              background: currentTrack === 'react' ? 'rgba(0, 216, 255, 0.15)' : 'transparent',
-              color: currentTrack === 'react' ? '#38bdf8' : 'var(--text-secondary)',
-              border: currentTrack === 'react' ? '1px solid rgba(0, 216, 255, 0.4)' : '1px solid transparent'
+              transition: 'all var(--transition-fast)',
+              background: !isJs ? '#ffffff' : 'transparent',
+              color: !isJs ? 'var(--text-primary)' : 'var(--text-muted)',
+              border: !isJs ? '1px solid var(--border-primary)' : '1px solid transparent',
+              boxShadow: !isJs ? 'var(--shadow-sm)' : 'none'
             }}
           >
-            <Atom size={15} color="#38bdf8" />
+            <Atom size={15} color={!isJs ? 'var(--brand-red)' : 'var(--text-muted)'} />
             React 19 ({totalReactQuestions})
           </button>
         </div>
 
-        {/* Quick Nav Tools */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          {/* Topics Directory */}
+        {/* Header Action Buttons */}
+        <div className="header-actions-row" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {/* Syllabus */}
           <button 
+            id="btn-nav-syllabus"
             className="btn-secondary"
             onClick={() => { soundFx.playClick(); onOpenTopics(); }}
             title="Browse Syllabus & Topics"
           >
-            <BookOpen size={16} />
-            <span style={{ display: 'none', md: 'inline' }}>Syllabus</span>
+            <BookOpen size={15} color="var(--text-secondary)" />
+            <span>Syllabus</span>
           </button>
 
           {/* Bookmarks */}
           <button 
+            id="btn-nav-bookmarks"
             className="btn-secondary"
             onClick={() => { soundFx.playClick(); onOpenBookmarks(); }}
             title="Saved Questions"
-            style={{ position: 'relative' }}
           >
-            <Bookmark size={16} />
+            <Bookmark size={15} color={bookmarksCount > 0 ? 'var(--brand-red)' : 'var(--text-secondary)'} />
+            <span>Bookmarks</span>
             {bookmarksCount > 0 && (
               <span style={{
-                position: 'absolute',
-                top: '-4px',
-                right: '-4px',
-                background: 'var(--accent-primary)',
-                color: '#fff',
-                fontSize: '0.68rem',
+                background: 'var(--brand-red-subtle)',
+                color: 'var(--brand-red)',
+                fontSize: '0.72rem',
                 fontWeight: 700,
-                width: '18px',
-                height: '18px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 0 8px rgba(99, 102, 241, 0.6)'
+                padding: '1px 6px',
+                borderRadius: '10px'
               }}>
                 {bookmarksCount}
               </span>
             )}
           </button>
 
-          {/* Mistakes Vault */}
+          {/* Mistakes */}
           <button 
+            id="btn-nav-mistakes"
             className="btn-secondary"
             onClick={() => { soundFx.playClick(); onOpenMistakes(); }}
-            title="Weakness / Mistakes Vault"
-            style={{ position: 'relative' }}
+            title="Weakness & Mistakes Vault"
           >
-            <AlertCircle size={16} color={mistakesCount > 0 ? '#ef4444' : 'currentColor'} />
+            <AlertCircle size={15} color={mistakesCount > 0 ? 'var(--brand-red)' : 'var(--text-secondary)'} />
+            <span>Mistakes</span>
             {mistakesCount > 0 && (
               <span style={{
-                position: 'absolute',
-                top: '-4px',
-                right: '-4px',
-                background: '#ef4444',
-                color: '#fff',
-                fontSize: '0.68rem',
+                background: 'var(--brand-red-subtle)',
+                color: 'var(--brand-red)',
+                fontSize: '0.72rem',
                 fontWeight: 700,
-                width: '18px',
-                height: '18px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 0 8px rgba(239, 68, 68, 0.6)'
+                padding: '1px 6px',
+                borderRadius: '10px'
               }}>
                 {mistakesCount}
               </span>
@@ -201,21 +186,24 @@ export default function Header({
 
           {/* Stats */}
           <button 
+            id="btn-nav-stats"
             className="btn-secondary"
             onClick={() => { soundFx.playClick(); onOpenStats(); }}
             title="Performance Analytics"
           >
-            <BarChart3 size={16} />
+            <BarChart3 size={15} color="var(--text-secondary)" />
+            <span>Analytics</span>
           </button>
 
-          {/* Audio Toggle */}
+          {/* Audio */}
           <button 
+            id="btn-nav-sound"
             className="btn-secondary"
             onClick={onToggleSound}
             title={soundMuted ? "Sound Off (Click to unmute)" : "Sound On (Click to mute)"}
             style={{ padding: '8px 10px' }}
           >
-            {soundMuted ? <VolumeX size={16} color="#94a3b8" /> : <Volume2 size={16} color="#34d399" />}
+            {soundMuted ? <VolumeX size={15} color="var(--text-muted)" /> : <Volume2 size={15} color="var(--brand-red)" />}
           </button>
         </div>
       </div>

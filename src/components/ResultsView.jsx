@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import confetti from 'canvas-confetti';
+import React, { useState } from 'react';
 import { 
   Trophy, 
   Award, 
@@ -11,8 +10,6 @@ import {
   Bookmark, 
   ChevronDown, 
   ChevronUp, 
-  Filter,
-  Sparkles,
   TrendingUp,
   Lightbulb
 } from 'lucide-react';
@@ -36,44 +33,11 @@ export default function ResultsView({
     totalQuestions,
     scorePercentage,
     timeSpentSeconds,
-    topicBreakdown,
-    track,
-    mode
+    topicBreakdown
   } = results;
 
   const passed = scorePercentage >= 70;
   const mastery = scorePercentage >= 90;
-
-  useEffect(() => {
-    soundFx.playComplete();
-    if (passed) {
-      // Trigger festive confetti explosion
-      const duration = 2.5 * 1000;
-      const animationEnd = Date.now() + duration;
-
-      const frame = () => {
-        confetti({
-          particleCount: 4,
-          angle: 60,
-          spread: 55,
-          origin: { x: 0 },
-          colors: ['#6366f1', '#00d8ff', '#facc15', '#10b981']
-        });
-        confetti({
-          particleCount: 4,
-          angle: 120,
-          spread: 55,
-          origin: { x: 1 },
-          colors: ['#6366f1', '#00d8ff', '#facc15', '#10b981']
-        });
-
-        if (Date.now() < animationEnd) {
-          requestAnimationFrame(frame);
-        }
-      };
-      frame();
-    }
-  }, [passed]);
 
   const toggleExpand = (id) => {
     setExpandedQuestions(prev => ({
@@ -98,50 +62,48 @@ export default function ResultsView({
   const incorrectCount = totalQuestions - correctCount;
 
   return (
-    <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+    <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
       
       {/* Score Summary Showcase Card */}
       <div className="glass-panel" style={{
-        padding: '36px 32px',
+        padding: '32px 24px',
         textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden',
-        border: `1px solid ${passed ? 'rgba(16, 185, 129, 0.4)' : 'rgba(239, 68, 68, 0.4)'}`,
-        background: `radial-gradient(circle at 50% 0%, ${passed ? 'rgba(16, 185, 129, 0.12)' : 'rgba(239, 68, 68, 0.12)'} 0%, rgba(18, 26, 47, 0.95) 75%)`
+        background: '#ffffff',
+        border: '1px solid var(--border-primary)',
+        boxShadow: 'var(--shadow-sm)'
       }}>
         <div style={{
-          width: '72px',
-          height: '72px',
+          width: '64px',
+          height: '64px',
           borderRadius: '50%',
-          background: passed ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)',
-          border: `2px solid ${passed ? '#10b981' : '#ef4444'}`,
+          background: passed ? 'var(--success-bg)' : 'var(--error-bg)',
+          border: `1.5px solid ${passed ? 'var(--success-border)' : 'var(--error-border)'}`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          margin: '0 auto 16px',
-          boxShadow: passed ? '0 0 25px rgba(16, 185, 129, 0.4)' : '0 0 25px rgba(239, 68, 68, 0.4)'
+          margin: '0 auto 14px'
         }}>
           {mastery ? (
-            <Trophy size={36} color="#facc15" />
+            <Trophy size={30} color="var(--brand-red)" />
           ) : passed ? (
-            <Award size={36} color="#10b981" />
+            <Award size={30} color="var(--success)" />
           ) : (
-            <RotateCcw size={36} color="#ef4444" />
+            <RotateCcw size={30} color="var(--error)" />
           )}
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '8px' }}>
           <span className={`badge ${mastery ? 'badge-intermediate' : passed ? 'badge-beginner' : 'badge-advanced'}`}>
-            {mastery ? 'Mastery Level Achieved' : passed ? 'Examination Passed' : 'Needs Reinforcement'}
+            {mastery ? 'Mastery Level' : passed ? 'Passed' : 'Needs Reinforcement'}
           </span>
         </div>
 
-        <h1 style={{ fontSize: '3rem', fontWeight: 900, letterSpacing: '-0.03em', marginBottom: '4px' }}>
+        <h1 style={{ fontSize: '2.8rem', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '2px', color: 'var(--text-primary)' }}>
           {scorePercentage}%
         </h1>
 
-        <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', marginBottom: '24px' }}>
-          You scored <strong>{correctCount}</strong> out of <strong>{totalQuestions}</strong> questions correct
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.96rem', marginBottom: '22px' }}>
+          You answered <strong style={{ color: 'var(--text-primary)' }}>{correctCount}</strong> of <strong style={{ color: 'var(--text-primary)' }}>{totalQuestions}</strong> questions correctly
         </p>
 
         {/* Quick KPI stats */}
@@ -149,30 +111,30 @@ export default function ResultsView({
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
           gap: '12px',
-          maxWidth: '600px',
-          margin: '0 auto 28px'
+          maxWidth: '520px',
+          margin: '0 auto 24px'
         }}>
-          <div style={{ padding: '12px', background: 'rgba(255, 255, 255, 0.04)', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
-            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Correct</p>
-            <p style={{ fontSize: '1.2rem', fontWeight: 800, color: '#10b981' }}>{correctCount}</p>
+          <div style={{ padding: '12px', background: '#f8fafc', borderRadius: '8px', border: '1px solid var(--border-primary)' }}>
+            <p style={{ fontSize: '0.74rem', color: 'var(--text-muted)', fontWeight: 600 }}>Correct</p>
+            <p style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--success)' }}>{correctCount}</p>
           </div>
-          <div style={{ padding: '12px', background: 'rgba(255, 255, 255, 0.04)', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
-            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Incorrect</p>
-            <p style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ef4444' }}>{incorrectCount}</p>
+          <div style={{ padding: '12px', background: '#f8fafc', borderRadius: '8px', border: '1px solid var(--border-primary)' }}>
+            <p style={{ fontSize: '0.74rem', color: 'var(--text-muted)', fontWeight: 600 }}>Incorrect</p>
+            <p style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--error)' }}>{incorrectCount}</p>
           </div>
-          <div style={{ padding: '12px', background: 'rgba(255, 255, 255, 0.04)', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
-            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Time Elapsed</p>
-            <p style={{ fontSize: '1.2rem', fontWeight: 800, color: '#38bdf8' }}>{formatTime(timeSpentSeconds)}</p>
+          <div style={{ padding: '12px', background: '#f8fafc', borderRadius: '8px', border: '1px solid var(--border-primary)' }}>
+            <p style={{ fontSize: '0.74rem', color: 'var(--text-muted)', fontWeight: 600 }}>Time Elapsed</p>
+            <p style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)' }}>{formatTime(timeSpentSeconds)}</p>
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap' }}>
           <button 
             className="btn-primary"
             onClick={() => { soundFx.playClick(); onRetake(); }}
           >
-            <RotateCcw size={18} />
+            <RotateCcw size={16} />
             Retake Exam
           </button>
 
@@ -180,9 +142,8 @@ export default function ResultsView({
             <button 
               className="btn-secondary"
               onClick={() => { soundFx.playClick(); onPracticeMistakes(); }}
-              style={{ borderColor: 'rgba(239, 68, 68, 0.4)', color: '#f87171' }}
             >
-              <XCircle size={18} color="#ef4444" />
+              <XCircle size={16} color="var(--brand-red)" />
               Practice Missed ({incorrectCount} Qs)
             </button>
           )}
@@ -191,7 +152,7 @@ export default function ResultsView({
             className="btn-secondary"
             onClick={() => { soundFx.playClick(); onNavigateHome(); }}
           >
-            <Home size={18} />
+            <Home size={16} />
             Home Dashboard
           </button>
         </div>
@@ -199,13 +160,13 @@ export default function ResultsView({
 
       {/* Topic Mastery Breakdown */}
       {topicBreakdown && Object.keys(topicBreakdown).length > 0 && (
-        <div className="glass-panel" style={{ padding: '24px' }}>
-          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <TrendingUp size={20} color="var(--accent-primary)" />
-            Topic-by-Topic Performance Analysis
+        <div className="glass-panel" style={{ padding: '22px' }}>
+          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-primary)' }}>
+            <TrendingUp size={18} color="var(--brand-red)" />
+            Topic Performance Breakdown
           </h3>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '12px' }}>
             {Object.entries(topicBreakdown).map(([topicId, data]) => {
               const accuracy = Math.round((data.correct / data.total) * 100);
               return (
@@ -213,29 +174,29 @@ export default function ResultsView({
                   key={topicId}
                   style={{
                     padding: '14px',
-                    borderRadius: '10px',
-                    background: 'rgba(255, 255, 255, 0.02)',
-                    border: '1px solid var(--border-subtle)'
+                    borderRadius: '8px',
+                    background: '#f8fafc',
+                    border: '1px solid var(--border-primary)'
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                    <span style={{ fontSize: '0.88rem', fontWeight: 600, color: '#f8fafc' }}>
+                    <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>
                       {data.name}
                     </span>
                     <span style={{
                       fontSize: '0.82rem',
                       fontWeight: 700,
-                      color: accuracy >= 70 ? '#10b981' : '#f59e0b'
+                      color: accuracy >= 70 ? 'var(--success)' : 'var(--error)'
                     }}>
                       {data.correct}/{data.total} ({accuracy}%)
                     </span>
                   </div>
 
-                  <div style={{ width: '100%', height: '6px', background: 'rgba(255, 255, 255, 0.08)', borderRadius: '3px', overflow: 'hidden' }}>
+                  <div style={{ width: '100%', height: '5px', background: '#e2e8f0', borderRadius: '3px', overflow: 'hidden' }}>
                     <div style={{
                       width: `${accuracy}%`,
                       height: '100%',
-                      background: accuracy >= 70 ? '#10b981' : accuracy >= 40 ? '#f59e0b' : '#ef4444',
+                      background: accuracy >= 70 ? 'var(--success)' : 'var(--brand-red)',
                       borderRadius: '3px'
                     }} />
                   </div>
@@ -247,31 +208,33 @@ export default function ResultsView({
       )}
 
       {/* In-Depth Question Corrections Review */}
-      <div className="glass-panel" style={{ padding: '24px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px', marginBottom: '20px' }}>
+      <div className="glass-panel" style={{ padding: '22px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '18px' }}>
           <div>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 800 }}>Detailed Answer Review</h3>
-            <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Review complete explanations and key takeaways</p>
+            <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-primary)' }}>Detailed Question Review</h3>
+            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Review complete rationale and explanations</p>
           </div>
 
           {/* Filter Pills */}
           <div style={{
             display: 'flex',
-            background: 'rgba(15, 23, 42, 0.8)',
-            padding: '4px',
-            borderRadius: 'var(--radius-md)',
-            border: '1px solid var(--border-subtle)',
-            gap: '4px'
+            background: '#f1f5f9',
+            padding: '3px',
+            borderRadius: '6px',
+            border: '1px solid var(--border-primary)',
+            gap: '2px',
+            flexWrap: 'wrap'
           }}>
             <button
               onClick={() => setActiveReviewFilter('all')}
               style={{
-                padding: '6px 12px',
-                borderRadius: '6px',
+                padding: '5px 12px',
+                borderRadius: '4px',
                 fontSize: '0.8rem',
                 fontWeight: 600,
-                background: activeReviewFilter === 'all' ? 'var(--accent-primary)' : 'transparent',
-                color: activeReviewFilter === 'all' ? '#fff' : 'var(--text-secondary)'
+                background: activeReviewFilter === 'all' ? '#ffffff' : 'transparent',
+                color: activeReviewFilter === 'all' ? 'var(--text-primary)' : 'var(--text-muted)',
+                boxShadow: activeReviewFilter === 'all' ? 'var(--shadow-sm)' : 'none'
               }}
             >
               All ({totalQuestions})
@@ -279,12 +242,13 @@ export default function ResultsView({
             <button
               onClick={() => setActiveReviewFilter('incorrect')}
               style={{
-                padding: '6px 12px',
-                borderRadius: '6px',
+                padding: '5px 12px',
+                borderRadius: '4px',
                 fontSize: '0.8rem',
                 fontWeight: 600,
-                background: activeReviewFilter === 'incorrect' ? 'rgba(239, 68, 68, 0.25)' : 'transparent',
-                color: activeReviewFilter === 'incorrect' ? '#f87171' : 'var(--text-secondary)'
+                background: activeReviewFilter === 'incorrect' ? '#ffffff' : 'transparent',
+                color: activeReviewFilter === 'incorrect' ? 'var(--brand-red)' : 'var(--text-muted)',
+                boxShadow: activeReviewFilter === 'incorrect' ? 'var(--shadow-sm)' : 'none'
               }}
             >
               Missed ({incorrectCount})
@@ -292,12 +256,13 @@ export default function ResultsView({
             <button
               onClick={() => setActiveReviewFilter('correct')}
               style={{
-                padding: '6px 12px',
-                borderRadius: '6px',
+                padding: '5px 12px',
+                borderRadius: '4px',
                 fontSize: '0.8rem',
                 fontWeight: 600,
-                background: activeReviewFilter === 'correct' ? 'rgba(16, 185, 129, 0.25)' : 'transparent',
-                color: activeReviewFilter === 'correct' ? '#34d399' : 'var(--text-secondary)'
+                background: activeReviewFilter === 'correct' ? '#ffffff' : 'transparent',
+                color: activeReviewFilter === 'correct' ? 'var(--success)' : 'var(--text-muted)',
+                boxShadow: activeReviewFilter === 'correct' ? 'var(--shadow-sm)' : 'none'
               }}
             >
               Correct ({correctCount})
@@ -306,21 +271,21 @@ export default function ResultsView({
         </div>
 
         {/* Questions Accordion List */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          {filteredQuestions.map((q, idx) => {
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          {filteredQuestions.map((q) => {
             const originalIndex = questions.findIndex(orig => orig.id === q.id);
             const userChoice = userAnswers[originalIndex];
             const isCorrect = userChoice === q.correctAnswer;
-            const isExpanded = expandedQuestions[q.id] !== undefined ? expandedQuestions[q.id] : !isCorrect; // Default expand mistakes
+            const isExpanded = expandedQuestions[q.id] !== undefined ? expandedQuestions[q.id] : !isCorrect;
             const isBookmarked = bookmarkedIds.includes(q.id);
 
             return (
               <div 
                 key={q.id}
                 style={{
-                  borderRadius: 'var(--radius-md)',
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  border: `1px solid ${isCorrect ? 'rgba(16, 185, 129, 0.25)' : 'rgba(239, 68, 68, 0.25)'}`,
+                  borderRadius: '8px',
+                  background: '#ffffff',
+                  border: `1px solid ${isCorrect ? 'var(--success-border)' : 'var(--error-border)'}`,
                   overflow: 'hidden'
                 }}
               >
@@ -328,51 +293,51 @@ export default function ResultsView({
                 <div 
                   onClick={() => toggleExpand(q.id)}
                   style={{
-                    padding: '16px',
+                    padding: '14px 16px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     cursor: 'pointer',
-                    background: isCorrect ? 'rgba(16, 185, 129, 0.04)' : 'rgba(239, 68, 68, 0.04)'
+                    background: isCorrect ? 'var(--success-bg)' : 'var(--error-bg)'
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flex: 1 }}>
                     {isCorrect ? (
-                      <CheckCircle2 size={20} color="#10b981" style={{ flexShrink: 0 }} />
+                      <CheckCircle2 size={18} color="var(--success)" style={{ flexShrink: 0 }} />
                     ) : (
-                      <XCircle size={20} color="#ef4444" style={{ flexShrink: 0 }} />
+                      <XCircle size={18} color="var(--error)" style={{ flexShrink: 0 }} />
                     )}
 
                     <div>
-                      <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)' }}>
+                      <span style={{ fontSize: '0.74rem', fontWeight: 700, color: isCorrect ? 'var(--success-text)' : 'var(--brand-red)' }}>
                         Q{originalIndex + 1} • {q.topicName}
                       </span>
-                      <h4 style={{ fontSize: '0.96rem', fontWeight: 600, color: '#f8fafc', marginTop: '2px' }}>
+                      <h4 style={{ fontSize: '0.94rem', fontWeight: 600, color: 'var(--text-primary)', marginTop: '2px' }}>
                         {q.question}
                       </h4>
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginLeft: '12px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginLeft: '12px' }}>
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         onToggleBookmark(q.id);
                       }}
-                      style={{ padding: '6px', color: isBookmarked ? 'var(--accent-primary)' : 'var(--text-muted)' }}
+                      style={{ padding: '6px', color: isBookmarked ? 'var(--brand-red)' : 'var(--text-muted)' }}
                       title="Bookmark Question"
                     >
-                      <Bookmark size={16} fill={isBookmarked ? 'var(--accent-primary)' : 'none'} />
+                      <Bookmark size={15} fill={isBookmarked ? 'var(--brand-red)' : 'none'} />
                     </button>
-                    {isExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                    {isExpanded ? <ChevronUp size={16} color="var(--text-secondary)" /> : <ChevronDown size={16} color="var(--text-secondary)" />}
                   </div>
                 </div>
 
                 {/* Expanded Details */}
                 {isExpanded && (
-                  <div style={{ padding: '20px', borderTop: '1px solid var(--border-subtle)', background: 'rgba(6, 9, 19, 0.5)' }}>
+                  <div style={{ padding: '18px', borderTop: '1px solid var(--border-subtle)', background: '#ffffff' }}>
                     {q.code && (
-                      <div className="code-block-wrapper" style={{ margin: '0 0 16px' }}>
+                      <div className="code-block-wrapper" style={{ margin: '0 0 14px' }}>
                         <pre className="code-content">
                           <code>{q.code}</code>
                         </pre>
@@ -380,23 +345,20 @@ export default function ResultsView({
                     )}
 
                     {/* Options Breakdown */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '16px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '14px' }}>
                       {q.options.map((opt, optIdx) => {
                         const isThisCorrect = optIdx === q.correctAnswer;
                         const isThisUser = optIdx === userChoice;
 
-                        let optBg = 'rgba(255, 255, 255, 0.03)';
-                        let optBorder = 'var(--border-subtle)';
-                        let optColor = 'var(--text-secondary)';
+                        let optBg = '#f8fafc';
+                        let optBorder = 'var(--border-primary)';
 
                         if (isThisCorrect) {
-                          optBg = 'rgba(16, 185, 129, 0.15)';
-                          optBorder = '#10b981';
-                          optColor = '#ffffff';
+                          optBg = 'var(--success-bg)';
+                          optBorder = 'var(--success-border)';
                         } else if (isThisUser && !isThisCorrect) {
-                          optBg = 'rgba(239, 68, 68, 0.15)';
-                          optBorder = '#ef4444';
-                          optColor = '#ffffff';
+                          optBg = 'var(--error-bg)';
+                          optBorder = 'var(--error-border)';
                         }
 
                         return (
@@ -404,31 +366,33 @@ export default function ResultsView({
                             key={optIdx}
                             style={{
                               padding: '10px 14px',
-                              borderRadius: '8px',
+                              borderRadius: '6px',
                               background: optBg,
                               border: `1px solid ${optBorder}`,
-                              color: optColor,
+                              color: 'var(--text-primary)',
                               fontSize: '0.9rem',
                               display: 'flex',
                               alignItems: 'center',
-                              justifyContent: 'space-between'
+                              justifyContent: 'space-between',
+                              flexWrap: 'wrap',
+                              gap: '6px'
                             }}
                           >
                             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                              <span style={{ fontWeight: 700, opacity: 0.8 }}>
+                              <span style={{ fontWeight: 700, color: 'var(--text-secondary)' }}>
                                 {String.fromCharCode(65 + optIdx)}.
                               </span>
                               <span>{opt}</span>
                             </div>
 
                             {isThisCorrect && (
-                              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#10b981', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                <CheckCircle2 size={14} /> Correct Answer
+                              <span style={{ fontSize: '0.76rem', fontWeight: 700, color: 'var(--success-text)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                <CheckCircle2 size={15} /> Correct Choice
                               </span>
                             )}
                             {isThisUser && !isThisCorrect && (
-                              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#ef4444', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                <XCircle size={14} /> Your Pick
+                              <span style={{ fontSize: '0.76rem', fontWeight: 700, color: 'var(--error-text)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                <XCircle size={15} /> Your Pick
                               </span>
                             )}
                           </div>
@@ -438,14 +402,14 @@ export default function ResultsView({
 
                     {/* Explanation */}
                     <div style={{
-                      padding: '14px',
-                      borderRadius: '8px',
-                      background: 'rgba(99, 102, 241, 0.08)',
-                      border: '1px solid rgba(99, 102, 241, 0.25)',
+                      padding: '14px 16px',
+                      borderRadius: '6px',
+                      background: 'var(--brand-red-subtle)',
+                      border: '1px solid var(--brand-red-border)',
                       marginBottom: q.tip ? '10px' : '0'
                     }}>
-                      <p style={{ fontSize: '0.88rem', lineHeight: 1.6, color: '#e2e8f0' }}>
-                        <strong style={{ color: '#a5b4fc' }}>Explanation: </strong>
+                      <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
+                        <strong style={{ color: 'var(--brand-red)' }}>Explanation: </strong>
                         {q.explanation}
                       </p>
                     </div>
@@ -453,18 +417,18 @@ export default function ResultsView({
                     {q.tip && (
                       <div style={{
                         padding: '10px 14px',
-                        borderRadius: '8px',
-                        background: 'rgba(245, 158, 11, 0.08)',
-                        border: '1px solid rgba(245, 158, 11, 0.2)',
-                        color: '#fef3c7',
-                        fontSize: '0.84rem',
+                        borderRadius: '6px',
+                        background: 'var(--warning-bg)',
+                        border: '1px solid var(--warning-border)',
+                        color: 'var(--warning-text)',
+                        fontSize: '0.86rem',
                         display: 'flex',
                         alignItems: 'flex-start',
                         gap: '8px'
                       }}>
-                        <Lightbulb size={16} color="#f59e0b" style={{ flexShrink: 0, marginTop: '2px' }} />
+                        <Lightbulb size={16} color="var(--warning)" style={{ flexShrink: 0, marginTop: '2px' }} />
                         <div>
-                          <strong style={{ color: '#fbbf24' }}>Pro Tip: </strong>
+                          <strong>Pro Tip: </strong>
                           {q.tip}
                         </div>
                       </div>

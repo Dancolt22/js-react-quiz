@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Trophy, Flame, Target, BarChart3, Clock, Calendar, CheckCircle2, XCircle } from 'lucide-react';
+import { X, Trophy, Flame, Target, BarChart3, Clock, Calendar, CheckCircle2 } from 'lucide-react';
 
 export default function StatsModal({
   isOpen,
@@ -29,54 +29,34 @@ export default function StatsModal({
   };
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: 'rgba(2, 6, 23, 0.85)',
-      backdropFilter: 'blur(10px)',
-      zIndex: 250,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '20px'
-    }}>
-      <div className="glass-panel animate-fade-in" style={{
-        width: '100%',
-        maxWidth: '720px',
-        maxHeight: '90vh',
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '28px',
-        border: '1px solid rgba(255, 255, 255, 0.15)',
-        boxShadow: '0 25px 60px rgba(0, 0, 0, 0.8)'
-      }}>
+    <div className="modal-backdrop" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="modal-card animate-fade-in" style={{ maxWidth: '680px' }}>
         {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px', flexWrap: 'wrap', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '10px',
-              background: 'rgba(99, 102, 241, 0.2)',
+              width: '36px',
+              height: '36px',
+              borderRadius: '8px',
+              background: 'var(--brand-red-subtle)',
+              border: '1px solid var(--brand-red-border)',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              flexShrink: 0
             }}>
-              <BarChart3 size={20} color="var(--accent-primary)" />
+              <BarChart3 size={18} color="var(--brand-red)" />
             </div>
             <div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 800 }}>Performance Analytics</h3>
-              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-                Track your study habits, overall accuracy, and exam trajectory
+              <h3 style={{ fontSize: '1.18rem', fontWeight: 800, color: 'var(--text-primary)' }}>Performance Analytics</h3>
+              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                Study history and accuracy tracking
               </p>
             </div>
           </div>
 
-          <button className="btn-secondary" onClick={onClose} style={{ padding: '8px', borderRadius: '50%' }}>
-            <X size={18} />
+          <button className="btn-secondary" onClick={onClose} style={{ padding: '6px', borderRadius: '6px' }}>
+            <X size={16} />
           </button>
         </div>
 
@@ -85,42 +65,42 @@ export default function StatsModal({
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
           gap: '12px',
-          marginBottom: '24px'
+          marginBottom: '20px'
         }}>
-          <div style={{ padding: '16px', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', fontSize: '0.78rem', marginBottom: '4px' }}>
-              <Target size={14} /> Questions Done
+          <div style={{ padding: '14px', background: '#f8fafc', borderRadius: '8px', border: '1px solid var(--border-primary)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', fontSize: '0.76rem', marginBottom: '4px', fontWeight: 600 }}>
+              <Target size={14} color="var(--brand-red)" /> Answered
             </div>
-            <p style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f8fafc' }}>{stats.totalAnswered}</p>
+            <p style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)' }}>{stats.totalAnswered}</p>
           </div>
 
-          <div style={{ padding: '16px', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', fontSize: '0.78rem', marginBottom: '4px' }}>
-              <CheckCircle2 size={14} color="#10b981" /> Accuracy
+          <div style={{ padding: '14px', background: '#f8fafc', borderRadius: '8px', border: '1px solid var(--border-primary)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', fontSize: '0.76rem', marginBottom: '4px', fontWeight: 600 }}>
+              <CheckCircle2 size={14} color="var(--success)" /> Accuracy
             </div>
-            <p style={{ fontSize: '1.5rem', fontWeight: 800, color: overallAccuracy >= 75 ? '#10b981' : '#f59e0b' }}>
+            <p style={{ fontSize: '1.4rem', fontWeight: 800, color: overallAccuracy >= 75 ? 'var(--success)' : 'var(--brand-red)' }}>
               {overallAccuracy}%
             </p>
           </div>
 
-          <div style={{ padding: '16px', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', fontSize: '0.78rem', marginBottom: '4px' }}>
-              <Trophy size={14} color="#a855f7" /> Exams Passed
+          <div style={{ padding: '14px', background: '#f8fafc', borderRadius: '8px', border: '1px solid var(--border-primary)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', fontSize: '0.76rem', marginBottom: '4px', fontWeight: 600 }}>
+              <Trophy size={14} color="var(--brand-red)" /> Completed
             </div>
-            <p style={{ fontSize: '1.5rem', fontWeight: 800, color: '#a855f7' }}>{stats.examsCompleted || 0}</p>
+            <p style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)' }}>{stats.examsCompleted || 0}</p>
           </div>
 
-          <div style={{ padding: '16px', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', fontSize: '0.78rem', marginBottom: '4px' }}>
-              <Flame size={14} color="#f59e0b" /> Best Streak
+          <div style={{ padding: '14px', background: '#f8fafc', borderRadius: '8px', border: '1px solid var(--border-primary)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', fontSize: '0.76rem', marginBottom: '4px', fontWeight: 600 }}>
+              <Flame size={14} color="var(--brand-red)" /> Best Streak
             </div>
-            <p style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f59e0b' }}>{stats.bestStreak || 0}</p>
+            <p style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--brand-red)' }}>{stats.bestStreak || 0}</p>
           </div>
         </div>
 
         {/* History Table */}
-        <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '12px', color: 'var(--text-primary)' }}>
-          Recent Activity & Exam Sessions
+        <h4 style={{ fontSize: '0.98rem', fontWeight: 700, marginBottom: '12px', color: 'var(--text-primary)' }}>
+          Recent Activity
         </h4>
 
         <div style={{
@@ -129,17 +109,17 @@ export default function StatsModal({
           display: 'flex',
           flexDirection: 'column',
           gap: '8px',
-          maxHeight: '320px'
+          maxHeight: '300px'
         }}>
           {history && history.length > 0 ? (
             history.map((item) => (
               <div
                 key={item.id}
                 style={{
-                  padding: '12px 16px',
-                  borderRadius: '8px',
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  border: '1px solid var(--border-subtle)',
+                  padding: '12px 14px',
+                  borderRadius: '6px',
+                  background: '#ffffff',
+                  border: '1px solid var(--border-primary)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
@@ -149,38 +129,38 @@ export default function StatsModal({
               >
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span className={`badge ${item.track === 'javascript' ? 'badge-js' : 'badge-react'}`} style={{ fontSize: '0.65rem' }}>
+                    <span className="badge badge-brand" style={{ fontSize: '0.68rem' }}>
                       {item.track === 'javascript' ? 'JavaScript' : 'React 19'}
                     </span>
-                    <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#f8fafc', textTransform: 'capitalize' }}>
+                    <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', textTransform: 'capitalize' }}>
                       {item.mode} Mode ({item.totalQuestions} Qs)
                     </span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                    <span><Calendar size={12} style={{ verticalAlign: 'middle', marginRight: '4px' }} />{formatDate(item.date)}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '3px', fontSize: '0.74rem', color: 'var(--text-muted)' }}>
+                    <span><Calendar size={12} style={{ verticalAlign: 'middle', marginRight: '3px' }} />{formatDate(item.date)}</span>
                     {item.timeSpentSeconds > 0 && (
-                      <span><Clock size={12} style={{ verticalAlign: 'middle', marginRight: '4px' }} />{formatSeconds(item.timeSpentSeconds)}</span>
+                      <span><Clock size={12} style={{ verticalAlign: 'middle', marginRight: '3px' }} />{formatSeconds(item.timeSpentSeconds)}</span>
                     )}
                   </div>
                 </div>
 
                 <div style={{ textAlign: 'right' }}>
                   <span style={{
-                    fontSize: '1.2rem',
+                    fontSize: '1.15rem',
                     fontWeight: 800,
-                    color: item.scorePercentage >= 70 ? '#10b981' : '#f59e0b'
+                    color: item.scorePercentage >= 70 ? 'var(--success)' : 'var(--brand-red)'
                   }}>
                     {item.scorePercentage}%
                   </span>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                  <p style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>
                     {item.correctCount}/{item.totalQuestions} correct
                   </p>
                 </div>
               </div>
             ))
           ) : (
-            <div style={{ textAlign: 'center', padding: '36px', color: 'var(--text-muted)' }}>
-              No exam attempts recorded yet. Start an exam or practice session to build your stats!
+            <div style={{ textAlign: 'center', padding: '32px', color: 'var(--text-muted)', fontSize: '0.88rem' }}>
+              No exam attempts recorded yet. Start an exam or practice session to build your stats.
             </div>
           )}
         </div>

@@ -59,6 +59,12 @@ export default function App() {
   const [history, setHistory] = useState(getStoredHistory());
   const [soundMuted, setSoundMuted] = useState(false);
 
+  // Sync active track attribute
+  useEffect(() => {
+    document.documentElement.setAttribute('data-track', track);
+    document.body.setAttribute('data-track', track);
+  }, [track]);
+
   // Load sound settings
   useEffect(() => {
     const settings = getStoredSettings();
@@ -314,7 +320,7 @@ export default function App() {
   const mistakeQuestionObjs = allBank.filter(q => Object.keys(mistakes).includes(q.id));
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div className={`app-wrapper track-${track}`} data-track={track} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       {/* Top Navigation */}
       <Header
         currentTrack={track}

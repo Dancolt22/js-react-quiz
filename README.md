@@ -16,7 +16,7 @@ DFI JS/REACT Quiz is a comprehensive developer evaluation platform designed to t
 - 🗺️ **Interactive Syllabus & Curriculum Explorer**: Browse all 28 JavaScript sections and 16 React 19 modules.
 - 📊 **Performance Analytics**: Real-time topic mastery breakdown bars, exam history, accuracy percentage, and test streaks.
 - 🎵 **Web Audio Sound Effects**: Zero-dependency synthetic audio cues with one-click mute/unmute.
-- 🎨 **Midnight Sapphire UI**: Built with modern glassmorphism, responsive layout, and dark mode aesthetics.
+- 🎨 **Clean White & Crimson Design System**: Built with a mature, relaxed, distraction-free aesthetic, high contrast, and responsive layout.
 
 ---
 
@@ -66,9 +66,11 @@ npm run build
 - **Build Tool**: Vite 6
 - **Icons**: Lucide React
 - **Celebration Effects**: Canvas Confetti
-- **Styling**: Vanilla CSS Design System with Glassmorphism & Cyberpunk-inspired dark theme
+- **Styling**: Vanilla CSS Design System (Relaxed, professional white & crimson aesthetic)
 
 ---
 
 ## 📄 License
 MIT License
+
+# js-react-quiz

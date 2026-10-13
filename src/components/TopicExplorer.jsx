@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Search, BookOpen, Sparkles, Filter, ChevronRight, Code2, Atom } from 'lucide-react';
+import { X, Search, BookOpen, ChevronRight, Code2, Atom } from 'lucide-react';
 import { soundFx } from '../utils/sound';
 
 export default function TopicExplorer({
@@ -25,126 +25,109 @@ export default function TopicExplorer({
   });
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: 'rgba(2, 6, 23, 0.85)',
-      backdropFilter: 'blur(10px)',
-      zIndex: 250,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '20px'
-    }}>
-      <div className="glass-panel animate-fade-in" style={{
-        width: '100%',
-        maxWidth: '840px',
-        maxHeight: '90vh',
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '28px',
-        border: '1px solid rgba(255, 255, 255, 0.15)',
-        boxShadow: '0 25px 60px rgba(0, 0, 0, 0.8)'
-      }}>
+    <div className="modal-backdrop" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="modal-card animate-fade-in" style={{ maxWidth: '800px' }}>
         {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px', flexWrap: 'wrap', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '10px',
-              background: 'rgba(99, 102, 241, 0.2)',
+              width: '36px',
+              height: '36px',
+              borderRadius: '8px',
+              background: 'var(--brand-red-subtle)',
+              border: '1px solid var(--brand-red-border)',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              flexShrink: 0
             }}>
-              <BookOpen size={20} color="var(--accent-primary)" />
+              <BookOpen size={18} color="var(--brand-red)" />
             </div>
             <div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 800 }}>Curriculum & Syllabus Explorer</h3>
-              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-                Select any module from the full JavaScript or React 19 course to practice
+              <h3 style={{ fontSize: '1.18rem', fontWeight: 800, color: 'var(--text-primary)' }}>Curriculum & Syllabus</h3>
+              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                Select any module for targeted drill
               </p>
             </div>
           </div>
 
-          <button className="btn-secondary" onClick={onClose} style={{ padding: '8px', borderRadius: '50%' }}>
-            <X size={18} />
+          <button className="btn-secondary" onClick={onClose} style={{ padding: '6px', borderRadius: '6px' }}>
+            <X size={16} />
           </button>
         </div>
 
         {/* Track Switch Tabs */}
-        <div style={{ display: 'flex', gap: '10px', marginBottom: '16px' }}>
+        <div style={{ display: 'flex', gap: '8px', marginBottom: '14px', flexWrap: 'wrap' }}>
           <button
             onClick={() => { soundFx.playClick(); setActiveTab('javascript'); }}
             style={{
               flex: 1,
-              padding: '10px',
-              borderRadius: '8px',
-              fontWeight: 700,
-              fontSize: '0.9rem',
+              minWidth: '180px',
+              padding: '9px 14px',
+              borderRadius: '6px',
+              fontWeight: 600,
+              fontSize: '0.86rem',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '8px',
-              background: activeTab === 'javascript' ? 'rgba(247, 223, 30, 0.15)' : 'rgba(255, 255, 255, 0.03)',
-              color: activeTab === 'javascript' ? '#facc15' : 'var(--text-secondary)',
-              border: activeTab === 'javascript' ? '1px solid rgba(247, 223, 30, 0.4)' : '1px solid var(--border-subtle)',
-              transition: 'all 0.2s'
+              gap: '6px',
+              background: activeTab === 'javascript' ? 'var(--brand-red)' : '#f8fafc',
+              color: activeTab === 'javascript' ? '#ffffff' : 'var(--text-secondary)',
+              border: activeTab === 'javascript' ? '1px solid var(--brand-red)' : '1px solid var(--border-primary)',
+              transition: 'all var(--transition-fast)'
             }}
           >
-            <Code2 size={16} />
-            JavaScript Complete Course ({jsTopics.length} Sections)
+            <Code2 size={15} />
+            JavaScript Course ({jsTopics.length} Sections)
           </button>
 
           <button
             onClick={() => { soundFx.playClick(); setActiveTab('react'); }}
             style={{
               flex: 1,
-              padding: '10px',
-              borderRadius: '8px',
-              fontWeight: 700,
-              fontSize: '0.9rem',
+              minWidth: '180px',
+              padding: '9px 14px',
+              borderRadius: '6px',
+              fontWeight: 600,
+              fontSize: '0.86rem',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '8px',
-              background: activeTab === 'react' ? 'rgba(0, 216, 255, 0.15)' : 'rgba(255, 255, 255, 0.03)',
-              color: activeTab === 'react' ? '#38bdf8' : 'var(--text-secondary)',
-              border: activeTab === 'react' ? '1px solid rgba(0, 216, 255, 0.4)' : '1px solid var(--border-subtle)',
-              transition: 'all 0.2s'
+              gap: '6px',
+              background: activeTab === 'react' ? 'var(--brand-red)' : '#f8fafc',
+              color: activeTab === 'react' ? '#ffffff' : 'var(--text-secondary)',
+              border: activeTab === 'react' ? '1px solid var(--brand-red)' : '1px solid var(--border-primary)',
+              transition: 'all var(--transition-fast)'
             }}
           >
-            <Atom size={16} />
-            React 19 Complete Standard ({reactTopics.length} Modules)
+            <Atom size={15} />
+            React 19 ({reactTopics.length} Modules)
           </button>
         </div>
 
         {/* Search & Difficulty Filter Bar */}
-        <div style={{ display: 'flex', gap: '12px', marginBottom: '16px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '8px', marginBottom: '14px', flexWrap: 'wrap' }}>
           <div style={{
             flex: 1,
+            minWidth: '200px',
             position: 'relative',
             display: 'flex',
             alignItems: 'center'
           }}>
-            <Search size={16} color="var(--text-muted)" style={{ position: 'absolute', left: '12px' }} />
+            <Search size={15} color="var(--text-muted)" style={{ position: 'absolute', left: '12px' }} />
             <input
               type="text"
-              placeholder="Search topics by name, concept, keyword..."
+              placeholder="Search topics by keyword..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               style={{
                 width: '100%',
-                padding: '10px 14px 10px 36px',
-                borderRadius: '8px',
-                background: 'rgba(15, 23, 42, 0.8)',
-                border: '1px solid var(--border-subtle)',
-                color: '#fff',
-                fontSize: '0.88rem',
+                padding: '8px 12px 8px 36px',
+                borderRadius: '6px',
+                background: '#ffffff',
+                border: '1px solid var(--border-primary)',
+                color: 'var(--text-primary)',
+                fontSize: '0.86rem',
                 outline: 'none'
               }}
             />
@@ -154,13 +137,14 @@ export default function TopicExplorer({
             value={difficultyFilter}
             onChange={(e) => setDifficultyFilter(e.target.value)}
             style={{
-              padding: '10px 14px',
-              borderRadius: '8px',
-              background: 'rgba(15, 23, 42, 0.8)',
-              border: '1px solid var(--border-subtle)',
-              color: '#fff',
-              fontSize: '0.85rem',
-              outline: 'none'
+              padding: '8px 12px',
+              borderRadius: '6px',
+              background: '#ffffff',
+              border: '1px solid var(--border-primary)',
+              color: 'var(--text-primary)',
+              fontSize: '0.84rem',
+              outline: 'none',
+              cursor: 'pointer'
             }}
           >
             <option value="all">All Difficulties</option>
@@ -174,9 +158,9 @@ export default function TopicExplorer({
         <div style={{
           overflowY: 'auto',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))',
-          gap: '12px',
-          padding: '4px'
+          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+          gap: '10px',
+          padding: '2px'
         }}>
           {filteredTopics.map((topic) => (
             <div
@@ -187,43 +171,43 @@ export default function TopicExplorer({
                 onClose();
               }}
               style={{
-                padding: '16px',
-                borderRadius: '10px',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid var(--border-subtle)',
+                padding: '14px',
+                borderRadius: '8px',
+                background: '#ffffff',
+                border: '1px solid var(--border-primary)',
                 cursor: 'pointer',
-                transition: 'all 0.2s',
+                transition: 'border-color var(--transition-fast), background var(--transition-fast)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = activeTab === 'javascript' ? 'rgba(247, 223, 30, 0.5)' : 'rgba(0, 216, 255, 0.5)';
-                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.06)';
+                e.currentTarget.style.borderColor = 'var(--brand-red)';
+                e.currentTarget.style.background = '#fef2f2';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'var(--border-subtle)';
-                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+                e.currentTarget.style.borderColor = 'var(--border-primary)';
+                e.currentTarget.style.background = '#ffffff';
               }}
             >
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
                   <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)' }}>
                     SECTION {topic.sectionNum}
                   </span>
                   <span className={`badge ${
                     topic.difficulty === 'Beginner' ? 'badge-beginner' :
                     topic.difficulty === 'Intermediate' ? 'badge-intermediate' : 'badge-advanced'
-                  }`} style={{ fontSize: '0.65rem', padding: '2px 6px' }}>
+                  }`}>
                     {topic.difficulty}
                   </span>
                 </div>
 
-                <h4 style={{ fontSize: '1rem', fontWeight: 700, color: '#f8fafc', marginBottom: '6px' }}>
+                <h4 style={{ fontSize: '0.94rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
                   {topic.name}
                 </h4>
 
-                <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '12px' }}>
+                <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.5, marginBottom: '10px' }}>
                   {topic.description}
                 </p>
               </div>
@@ -232,14 +216,14 @@ export default function TopicExplorer({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                paddingTop: '10px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                paddingTop: '8px',
+                borderTop: '1px solid var(--border-subtle)',
                 fontSize: '0.8rem',
-                color: activeTab === 'javascript' ? '#facc15' : '#38bdf8',
+                color: 'var(--brand-red)',
                 fontWeight: 600
               }}>
-                <span>Launch Practice Drill</span>
-                <ChevronRight size={16} />
+                <span>Practice Module</span>
+                <ChevronRight size={14} />
               </div>
             </div>
           ))}

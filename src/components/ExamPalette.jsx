@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Check, Flag, HelpCircle } from 'lucide-react';
+import { X } from 'lucide-react';
 import { soundFx } from '../utils/sound';
 
 export default function ExamPalette({
@@ -16,44 +16,23 @@ export default function ExamPalette({
   if (!isOpen) return null;
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: 'rgba(2, 6, 23, 0.8)',
-      backdropFilter: 'blur(8px)',
-      zIndex: 200,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '20px'
-    }}>
-      <div className="glass-panel animate-fade-in" style={{
-        width: '100%',
-        maxWidth: '680px',
-        maxHeight: '85vh',
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '24px',
-        border: '1px solid rgba(255, 255, 255, 0.15)',
-        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.7)'
-      }}>
+    <div className="modal-backdrop" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="modal-card animate-fade-in" style={{ maxWidth: '640px' }}>
         {/* Modal Header */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px', flexWrap: 'wrap', gap: '8px' }}>
           <div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 800 }}>Question Navigation Palette</h3>
-            <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-              Click any question number to jump directly to it
+            <h3 style={{ fontSize: '1.18rem', fontWeight: 800, color: 'var(--text-primary)' }}>Question Navigation Palette</h3>
+            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+              Jump to any question instantly
             </p>
           </div>
           <button 
+            id="btn-close-palette"
             className="btn-secondary"
             onClick={onClose}
-            style={{ padding: '8px', borderRadius: '50%' }}
+            style={{ padding: '6px', borderRadius: '6px' }}
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
 
@@ -62,61 +41,62 @@ export default function ExamPalette({
           display: 'flex',
           alignItems: 'center',
           gap: '14px',
-          padding: '10px 14px',
-          background: 'rgba(255, 255, 255, 0.03)',
-          borderRadius: '8px',
-          marginBottom: '18px',
+          padding: '8px 12px',
+          background: '#f8fafc',
+          borderRadius: '6px',
+          marginBottom: '16px',
           flexWrap: 'wrap',
-          fontSize: '0.78rem'
+          fontSize: '0.78rem',
+          border: '1px solid var(--border-primary)'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <span style={{ width: '12px', height: '12px', borderRadius: '3px', background: 'var(--accent-primary)' }} />
-            <span>Answered</span>
+            <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: 'var(--brand-red)' }} />
+            <span style={{ color: 'var(--text-secondary)' }}>Answered</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <span style={{ width: '12px', height: '12px', borderRadius: '3px', background: '#f59e0b' }} />
-            <span>Flagged for Review</span>
+            <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: '#f59e0b' }} />
+            <span style={{ color: 'var(--text-secondary)' }}>Flagged</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <span style={{ width: '12px', height: '12px', borderRadius: '3px', border: '2px solid #38bdf8', background: 'transparent' }} />
-            <span>Current Question</span>
+            <span style={{ width: '10px', height: '10px', borderRadius: '2px', border: '2px solid var(--text-primary)', background: '#ffffff' }} />
+            <span style={{ color: 'var(--text-secondary)' }}>Current</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <span style={{ width: '12px', height: '12px', borderRadius: '3px', background: 'rgba(255, 255, 255, 0.08)' }} />
-            <span>Unanswered</span>
+            <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: '#f8fafc', border: '1px solid var(--border-primary)' }} />
+            <span style={{ color: 'var(--text-muted)' }}>Unanswered</span>
           </div>
         </div>
 
         {/* Grid of question buttons */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(44px, 1fr))',
-          gap: '8px',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(42px, 1fr))',
+          gap: '6px',
           overflowY: 'auto',
-          padding: '8px 4px',
-          maxHeight: '400px'
+          padding: '4px 2px',
+          maxHeight: '360px'
         }}>
           {Array.from({ length: totalQuestions }, (_, idx) => {
             const isAnswered = userAnswers[idx] !== undefined && userAnswers[idx] !== null;
             const isFlag = flaggedQuestions.includes(idx);
             const isCurrent = idx === currentIndex;
 
-            let bg = 'rgba(255, 255, 255, 0.05)';
+            let bg = '#f8fafc';
             let color = 'var(--text-secondary)';
-            let borderColor = 'var(--border-subtle)';
+            let borderColor = 'var(--border-primary)';
 
             if (isAnswered) {
-              bg = 'rgba(99, 102, 241, 0.25)';
-              borderColor = 'var(--accent-primary)';
+              bg = 'var(--brand-red)';
+              borderColor = 'var(--brand-red)';
               color = '#ffffff';
             }
             if (isFlag) {
-              bg = 'rgba(245, 158, 11, 0.25)';
+              bg = '#fffbeb';
               borderColor = '#f59e0b';
-              color = '#fde68a';
+              color = '#b45309';
             }
             if (isCurrent) {
-              borderColor = '#38bdf8';
+              borderColor = 'var(--text-primary)';
             }
 
             return (
@@ -128,18 +108,18 @@ export default function ExamPalette({
                   onClose();
                 }}
                 style={{
-                  height: '42px',
-                  borderRadius: '8px',
-                  fontSize: '0.85rem',
+                  height: '38px',
+                  borderRadius: '6px',
+                  fontSize: '0.82rem',
                   fontWeight: 700,
                   background: bg,
-                  border: `2px solid ${borderColor}`,
+                  border: isCurrent ? '2px solid var(--text-primary)' : `1px solid ${borderColor}`,
                   color: color,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   position: 'relative',
-                  transition: 'all 0.15s'
+                  transition: 'all var(--transition-fast)'
                 }}
               >
                 {idx + 1}
@@ -148,8 +128,8 @@ export default function ExamPalette({
                     position: 'absolute',
                     top: '2px',
                     right: '2px',
-                    width: '6px',
-                    height: '6px',
+                    width: '5px',
+                    height: '5px',
                     borderRadius: '50%',
                     background: '#f59e0b'
                   }} />
@@ -164,26 +144,28 @@ export default function ExamPalette({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          marginTop: '20px',
-          paddingTop: '16px',
-          borderTop: '1px solid var(--border-subtle)'
+          marginTop: '16px',
+          paddingTop: '14px',
+          borderTop: '1px solid var(--border-primary)',
+          flexWrap: 'wrap',
+          gap: '10px'
         }}>
-          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-            Total Answered: {Object.keys(userAnswers).length} / {totalQuestions}
+          <span style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
+            Answered: <strong style={{ color: 'var(--brand-red)' }}>{Object.keys(userAnswers).length}</strong> / {totalQuestions}
           </span>
 
-          <div style={{ display: 'flex', gap: '10px' }}>
+          <div style={{ display: 'flex', gap: '8px' }}>
             <button className="btn-secondary" onClick={onClose}>
               Close
             </button>
             {isExam && (
               <button
+                id="btn-submit-exam-palette"
                 className="btn-primary"
                 onClick={() => {
                   onClose();
                   onFinishExam();
                 }}
-                style={{ background: 'linear-gradient(135deg, #10b981, #059669)' }}
               >
                 Submit Exam
               </button>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, RotateCcw, Trash2, Play, AlertCircle } from 'lucide-react';
+import { X, RotateCcw, AlertCircle } from 'lucide-react';
 import { soundFx } from '../utils/sound';
 
 export default function MistakesModal({
@@ -11,60 +11,40 @@ export default function MistakesModal({
   if (!isOpen) return null;
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: 'rgba(2, 6, 23, 0.85)',
-      backdropFilter: 'blur(10px)',
-      zIndex: 250,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '20px'
-    }}>
-      <div className="glass-panel animate-fade-in" style={{
-        width: '100%',
-        maxWidth: '740px',
-        maxHeight: '90vh',
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '28px',
-        border: '1px solid rgba(239, 68, 68, 0.3)',
-        boxShadow: '0 25px 60px rgba(0, 0, 0, 0.8)'
-      }}>
+    <div className="modal-backdrop" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="modal-card animate-fade-in" style={{ maxWidth: '680px' }}>
         {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px', flexWrap: 'wrap', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '10px',
-              background: 'rgba(239, 68, 68, 0.2)',
+              width: '36px',
+              height: '36px',
+              borderRadius: '8px',
+              background: 'var(--brand-red-subtle)',
+              border: '1px solid var(--brand-red-border)',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              flexShrink: 0
             }}>
-              <AlertCircle size={20} color="#ef4444" />
+              <AlertCircle size={18} color="var(--brand-red)" />
             </div>
             <div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 800 }}>Weakness / Mistake Vault</h3>
-              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-                {mistakeQuestions.length} Questions needing targeted remediation
+              <h3 style={{ fontSize: '1.18rem', fontWeight: 800, color: 'var(--text-primary)' }}>Mistakes & Weakness Vault</h3>
+              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                {mistakeQuestions.length} Questions needing remediation
               </p>
             </div>
           </div>
 
-          <button className="btn-secondary" onClick={onClose} style={{ padding: '8px', borderRadius: '50%' }}>
-            <X size={18} />
+          <button className="btn-secondary" onClick={onClose} style={{ padding: '6px', borderRadius: '6px' }}>
+            <X size={16} />
           </button>
         </div>
 
         {/* Action button if has items */}
         {mistakeQuestions.length > 0 && (
-          <div style={{ marginBottom: '16px' }}>
+          <div style={{ marginBottom: '14px' }}>
             <button
               className="btn-primary"
               onClick={() => {
@@ -74,11 +54,10 @@ export default function MistakesModal({
               }}
               style={{
                 width: '100%',
-                justifyContent: 'center',
-                background: 'linear-gradient(135deg, #ef4444, #dc2626)'
+                justifyContent: 'center'
               }}
             >
-              <RotateCcw size={16} />
+              <RotateCcw size={15} />
               Launch Mastery Drill on {mistakeQuestions.length} Missed Questions
             </button>
           </div>
@@ -90,18 +69,18 @@ export default function MistakesModal({
           flex: 1,
           display: 'flex',
           flexDirection: 'column',
-          gap: '10px',
-          maxHeight: '400px'
+          gap: '8px',
+          maxHeight: '360px'
         }}>
           {mistakeQuestions.length > 0 ? (
             mistakeQuestions.map((q) => (
               <div
                 key={q.id}
                 style={{
-                  padding: '14px',
-                  borderRadius: '10px',
-                  background: 'rgba(239, 68, 68, 0.04)',
-                  border: '1px solid rgba(239, 68, 68, 0.2)',
+                  padding: '12px 14px',
+                  borderRadius: '6px',
+                  background: 'var(--brand-red-subtle)',
+                  border: '1px solid var(--brand-red-border)',
                   display: 'flex',
                   alignItems: 'flex-start',
                   justifyContent: 'space-between',
@@ -109,25 +88,25 @@ export default function MistakesModal({
                 }}
               >
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-                    <span className="badge badge-advanced" style={{ fontSize: '0.65rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
+                    <span className="badge badge-brand" style={{ fontSize: '0.68rem' }}>
                       {q.topicName}
                     </span>
                     {q.difficulty && (
-                      <span className="badge badge-intermediate" style={{ fontSize: '0.65rem' }}>
+                      <span className="badge badge-intermediate" style={{ fontSize: '0.68rem' }}>
                         {q.difficulty}
                       </span>
                     )}
                   </div>
-                  <h4 style={{ fontSize: '0.94rem', fontWeight: 600, color: '#f8fafc', lineHeight: 1.4 }}>
+                  <h4 style={{ fontSize: '0.92rem', fontWeight: 600, color: 'var(--text-primary)', lineHeight: 1.4 }}>
                     {q.question}
                   </h4>
                 </div>
               </div>
             ))
           ) : (
-            <div style={{ textAlign: 'center', padding: '40px 20px', color: 'var(--text-muted)' }}>
-              🎉 Clean slate! You currently have no unresolved mistakes in your vault.
+            <div style={{ textAlign: 'center', padding: '36px 20px', color: 'var(--text-muted)', fontSize: '0.88rem' }}>
+              Clean slate! You currently have no unresolved mistakes in your vault.
             </div>
           )}
         </div>
